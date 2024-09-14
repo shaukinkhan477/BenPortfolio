@@ -1,0 +1,20 @@
+/* Custom animation to move cards from left to right */
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Apply the animation to all cards */
+.move-card-container {
+  animation: moveLeft 25s linear infinite;
+  display: flex;
+}
+
+/* Pause animation for all cards when hovering over any card */
+.move-card-container:hover {
+  animation-play-state: paused;
+}
