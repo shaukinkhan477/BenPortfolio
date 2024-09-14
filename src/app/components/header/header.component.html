@@ -1,0 +1,80 @@
+<nav class="mb-12 flex items-center justify-between py-6">
+  <div class="flex flex-shrink-0 items-center">
+    <img class="mx-2 w-16" src="/assets/images/benLogo2.png" alt="Logo">
+  </div>
+   <button id="get-in-touch-btn" class="px-6 py-2  text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
+      Get in Touch
+    </button>
+  <!-- Social Media Icons - Initially in Header -->
+  <div id="social-icons" class="flex gap-6 items-center transition-all duration-300">
+    <div class="group relative">
+      <i class="bi bi-linkedin mr-2 cursor-pointer text-2xl hover:text-blue-600 transition-transform transform hover:scale-110 duration-300"></i>
+      <div
+        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+        LinkedIN
+      </div>
+    </div>
+    <div class="group relative">
+      <i class="bi bi-github cursor-pointer text-2xl hover:text-gray-800 transition-transform transform hover:scale-110 duration-300"></i>
+      <div
+        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+        GitHub
+      </div>
+    </div>
+    <div class="group relative">
+      <i class="bi bi-twitter-x cursor-pointer text-2xl hover:text-blue-500 transition-transform transform hover:scale-110 duration-300"></i>
+      <div
+        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+        Twitter
+      </div>
+    </div>
+    <div class="group relative">
+      <i class="bi bi-instagram cursor-pointer text-2xl hover:text-pink-600 transition-transform transform hover:scale-110 duration-300"></i>
+      <div
+        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+        Instagram
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Modal (Initially Hidden) -->
+<div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-40">
+  <div class="bg-neutral-800 w-full max-w-4xl h-auto p-8 rounded-lg shadow-lg flex">
+    <!-- Left: About Me Section -->
+    <div class="w-1/2 pr-8">
+      <h2 class="text-2xl font-semibold mb-4">About Me.</h2>
+      <p class="mb-4 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent">Senior Web FrontEnd Consultant (Angular)</p>
+      <p>I'm Ben, a Senior Angular Consultant. I love working with web technologies and crafting interactive and responsive user interfaces.</p>
+      <p class="mt-4">I like to solve design problems, create user-friendly interfaces, and develop rich web experiences & applications.</p>
+    </div>
+
+    <!-- Right: Contact Form Section -->
+    <div class="w-1/2 pl-8">
+      <h2 class="text-2xl font-semibold mb-4">Let's talk.</h2>
+      <p class="mb-4 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">New projects, freelance inquiry, or even a coffee.</p>
+      <form id="contact-form">
+        <label for="name" class="block text-sm font-medium">Name *</label>
+        <input type="text" id="name" class="w-full border bg-neutral-800 border-gray-300 p-2 rounded mb-2">
+        <span id="name-error" class="text-red-500 text-xs hidden">Name is required.</span>
+
+        <label for="email" class="block text-sm font-medium">E-mail *</label>
+        <input type="email" id="email" class="w-full border bg-neutral-800 border-gray-300 p-2 rounded mb-2">
+        <span id="email-error" class="text-red-500 text-xs hidden">Valid email is required.</span>
+
+        <label for="message" class="block text-sm font-medium">Message *</label>
+        <textarea id="message" class="w-full border bg-neutral-800 border-gray-300 p-2 rounded mb-2"></textarea>
+        <span id="message-error" class="text-red-500 text-xs hidden">Message is required.</span>
+
+        <button type="submit" id="submit-btn" class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition duration-300 ease-in-out">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Close Button -->
+    <button id="close-modal" class="absolute text-white text-4xl z-50">&times;</button>
+  </div>
+</div>
+

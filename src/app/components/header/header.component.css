@@ -1,0 +1,35 @@
+#get-in-touch-btn {
+  margin-left: 500px;
+}
+
+#contact-modal {
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+}
+
+#contact-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#contact-modal.flex {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#close-modal.absolute {
+  cursor: pointer;
+  top: 70px;
+  right: 200px;
+  /* margin-top: 0px;
+  margin-right: 10px; */
+}
+
+#close-modal:hover {
+  color: red;
+}
+
+button:hover {
+  cursor: pointer;
+}
+

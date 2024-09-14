@@ -1,0 +1,17 @@
+<div class="border-b border-neutral-900 bp-4">
+  <h1 class="my-20 text-center text-4xl">Experience</h1>
+  <div *ngFor="let experience of experiences">
+     <div class="flex flex-wrap lg:justify-center">
+      <div class="w-full lg:w-1/4">
+        <p class="mb-2 mt-4 text-sm text-neutral-400">{{ experience.year }}</p>
+      </div>
+      <div class="w-full max-w-xl lg:w-3/4">
+        <h6 class="mb-2 mt-4 font-semibold">{{ experience.role }} - <span class="text-sm text-purple-100">{{ experience.company }}</span></h6>
+        <p class="mb-4 text-neutral-400">{{ experience.description }}</p>
+        <span *ngFor="let tech of experience.technologies" class="mr-2 mt-4 mb-6 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800">
+          {{tech}}
+        </span>
+      </div>
+     </div>
+  </div>
+</div>

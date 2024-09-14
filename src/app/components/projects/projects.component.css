@@ -1,0 +1,19 @@
+/* img {
+  transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+div {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+div:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+span {
+  margin-bottom: 4px;
+} */
