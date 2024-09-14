@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class ProjectsComponent {
 
-  project1 = 'assets/images/benProject1.jpeg';
+  project1 = 'assets/images/benProject-1.jpeg';
   project2 = 'assets/images/benProject-2.jpeg';
   project3 = 'assets/images/benProject-3.png';
   project4 = 'assets/images/benProject-4.jpg';
