@@ -11,6 +11,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class HeaderComponent {
 
+  aboutMe: any = {
+    heading: 'About Me',
+    profession: 'Senior Web FrontEnd Consultant (Angular)',
+    aboutMePara1: 'I m Ben, a Senior Angular Consultant. I love working with web technologies and crafting interactive and responsive user interfaces',
+    aboutMePara2: 'I like to solve design problems, create user-friendly interfaces, and develop rich web experiences & applications.'
+  }
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const socialIcons = document.getElementById('social-icons');
