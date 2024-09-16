@@ -8,11 +8,14 @@ import { ExperienceComponent } from "./components/experience/experience.componen
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { TestimonialComponent } from "./components/testimonial/testimonial.component";
+import { ServicesComponent } from "./components/services/services.component";
+import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent],
+  imports: [RouterOutlet, HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent, ServicesComponent, ContactModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

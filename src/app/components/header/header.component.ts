@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ModalService } from '../../shared/modal.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,21 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
+
+  constructor(private modalService: ModalService) {}
+
 
   aboutMe: any = {
     heading: 'About Me',
     profession: 'Senior Web FrontEnd Consultant (Angular)',
     aboutMePara1: 'I m Ben, a Senior Angular Consultant. I love working with web technologies and crafting interactive and responsive user interfaces',
     aboutMePara2: 'I like to solve design problems, create user-friendly interfaces, and develop rich web experiences & applications.'
+  }
+
+  // Open the "Get in Touch" modal
+  openGetInTouchModal() {
+    this.modalService.openModal();  // Call the service to show the modal
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -35,28 +44,46 @@ export class HeaderComponent {
 
   // Open the modal when the "Get in Touch" button is clicked
   ngAfterViewInit() {
-    const getInTouchBtn = document.getElementById('get-in-touch-btn');
-    const modal = document.getElementById('contact-modal');
-    const closeModalBtn = document.getElementById('close-modal');
+  const modal = document.getElementById('contact-modal');
 
-    getInTouchBtn?.addEventListener('click', () => {
+  // Service Modal Logic
+  const serviceBtn = document.getElementById('service-btn');
+  const serviceModal = document.getElementById('service-modal');
+  const closeServiceModalBtn = document.getElementById('close-service-modal');
+
+  // Show "Services" modal when clicked
+  serviceBtn?.addEventListener('click', () => {
+    serviceModal?.classList.remove('hidden');
+    serviceModal?.classList.add('flex');
+  });
+
+  // Close "Services" modal
+  closeServiceModalBtn?.addEventListener('click', () => {
+    serviceModal?.classList.add('hidden');
+    serviceModal?.classList.remove('flex');
+  });
+
+  // Close the modal when clicking outside the modal content
+  window.addEventListener('click', (e) => {
+    if (e.target === serviceModal) {
+      serviceModal?.classList.add('hidden');
+      serviceModal?.classList.remove('flex');
+    }
+  });
+
+
+    // Handle "Get in Touch" button in the service modal
+    const serviceGetInTouchBtn = document.getElementById('service-get-in-touch-btn');
+    serviceGetInTouchBtn?.addEventListener('click', () => {
+      // Close the service modal
+      serviceModal?.classList.add('hidden');
+      serviceModal?.classList.remove('flex');
+
+      // Open the "Get in Touch" modal
       modal?.classList.remove('hidden');
       modal?.classList.add('flex');
     });
+}
 
-    // Close the modal when clicking the close button
-    closeModalBtn?.addEventListener('click', () => {
-      modal?.classList.add('hidden');
-      modal?.classList.remove('flex');
-    });
-
-    // Close the modal when clicking outside of the modal content
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal?.classList.add('hidden');
-        modal?.classList.remove('flex');
-      }
-    });
-  }
 
 }

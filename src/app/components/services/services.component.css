@@ -1,60 +1,23 @@
-#get-in-touch-btn {
-  margin-left: 500px;
-}
-
-#contact-modal {
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-}
-
-#contact-modal.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#contact-modal.flex {
-  opacity: 1;
-  pointer-events: all;
-}
-
-#close-modal.absolute {
-  cursor: pointer;
-  top: 70px;
-  right: 200px;
-}
-
-#close-modal:hover {
-  color: red;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-
-/* Center the cube container */
+/* Cube container */
 .cube-container {
-  width: 300px; /* Increased size for better visibility */
-  height: 300px;
+  width: 150px;
+  height: 150px;
   perspective: 1000px;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
-  position: relative;
+  overflow: hidden;
 }
 
 /* Cube styling */
 .cube {
   width: 100%;
   height: 100%;
-  margin-top: 100px;
-  position: absolute; /* Keep cube inside the container */
+  position: relative;
   transform-style: preserve-3d;
   transform: rotateX(0deg) rotateY(0deg);
-  transition: transform 5s ease;
-  animation: rotateCube 10s infinite linear;
+  transition: transform 1s ease;
 }
 
 /* Cube face styling */
@@ -62,7 +25,7 @@ button:hover {
   position: absolute;
   width: 150px;
   height: 150px;
-  background-color:  white;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,6 +33,8 @@ button:hover {
   color: #333;
   border: 1px solid #ccc;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Cube faces */
@@ -112,20 +77,38 @@ button:hover {
 
 .services-links a {
   display: inline-block;
-  margin: 2px;
-  padding: 8px 18px;
-  font-size: 10px;
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
   text-decoration: none;
   color: white;
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
+  border: 1px solid #555;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 180px;
+  text-align: center;
 }
 
 .services-links a:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #FF5722;
   transform: scale(1.05);
   color: white;
+  border-color: #FF5722;
 }
 
+/* "Get in Touch" Button */
+#service-get-in-touch-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+#service-get-in-touch-btn:hover {
+  background-color: #2980b9;
+}

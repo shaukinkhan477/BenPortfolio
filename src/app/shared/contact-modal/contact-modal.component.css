@@ -1,0 +1,17 @@
+#contact-modal {
+  transition: opacity 5s ease-in-out;
+}
+
+ #close-modal.absolute {
+  cursor: pointer;
+  top: 70px;
+  right: 200px;
+}
+
+#close-modal:hover {
+  color: red;
+}
+
+button:hover {
+  cursor: pointer;
+}
