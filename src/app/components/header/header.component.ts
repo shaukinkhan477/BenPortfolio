@@ -14,14 +14,6 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor(private modalService: ModalService) {}
 
-
-  aboutMe: any = {
-    heading: 'About Me',
-    profession: 'Senior Web FrontEnd Consultant (Angular)',
-    aboutMePara1: 'I m Ben, a Senior Angular Consultant. I love working with web technologies and crafting interactive and responsive user interfaces',
-    aboutMePara2: 'I like to solve design problems, create user-friendly interfaces, and develop rich web experiences & applications.'
-  }
-
   // Open the "Get in Touch" modal
   openGetInTouchModal() {
     this.modalService.openModal();  // Call the service to show the modal

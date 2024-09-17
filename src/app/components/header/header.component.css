@@ -2,28 +2,7 @@
   margin-left: 500px;
 }
 
-#contact-modal {
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-}
-
-#contact-modal.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#contact-modal.flex {
-  opacity: 1;
-  pointer-events: all;
-}
-
-#close-modal.absolute {
-  cursor: pointer;
-  top: 70px;
-  right: 200px;
-}
-
-#close-modal:hover {
+#close-service-modal:hover {
   color: red;
 }
 
@@ -32,25 +11,23 @@ button:hover {
 }
 
 
-/* Center the cube container */
+/* Cube container */
 .cube-container {
-  width: 300px; /* Increased size for better visibility */
+  width: 300px;
   height: 300px;
   perspective: 1000px;
-  margin: 0 auto; /* Center horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
   position: relative;
+  margin-right: 50px; /* Add spacing between cube and service links */
 }
 
 /* Cube styling */
 .cube {
   width: 100%;
   height: 100%;
-  margin-top: 100px;
-  position: absolute; /* Keep cube inside the container */
+  position: absolute;
   transform-style: preserve-3d;
   transform: rotateX(0deg) rotateY(0deg);
   transition: transform 5s ease;
@@ -62,7 +39,7 @@ button:hover {
   position: absolute;
   width: 150px;
   height: 150px;
-  background-color:  white;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,37 +67,37 @@ button:hover {
   }
 }
 
-/* Modal styles */
-#service-modal {
-  display: none;
-}
-
-#service-modal.flex {
-  display: flex;
-}
-
-
-/* Service Links styling */
+/* Service Links styling using CSS Grid */
 .services-links {
-  text-align: center;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px; /* Spacing between items */
+  margin-left: 50px;
+  margin-top: 15px;
 }
 
 .services-links a {
   display: inline-block;
-  margin: 2px;
   padding: 8px 18px;
-  font-size: 10px;
+  font-size: 12px;
   text-decoration: none;
   color: white;
-  background-color: #333;
   border-radius: 8px;
+  position: relative; /* Ensure the pseudo-element is positioned correctly */
+  overflow: hidden;
+  z-index: 1;
+
+  /* Gradient border */
+  border: 2px solid transparent;
+  background-image: linear-gradient(#333, #333),
+                    linear-gradient(to right, #ec4899, #64748b, #a855f7); /* Inner background and border gradient */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
   transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
 }
+
 
 .services-links a:hover {
   background-color: rgba(0, 0, 0, 0.5);
@@ -128,4 +105,17 @@ button:hover {
   color: white;
 }
 
+
+/* "Request a Service" button styling */
+#service-get-in-touch-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  /* background-color: #3498db; */
+  border: none;
+  /* border-radius: 5px; */
+  /* color: #fff; */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto;
+}
 
