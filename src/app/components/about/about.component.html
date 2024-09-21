@@ -1,17 +1,26 @@
 <div class="border-b border-neutral-900 pb-4">
-  <h1 class="my-20 text-center text-4xl">About
-    <span class="text-neutral-500"> Me</span>
+  <h1 class="my-20 text-center text-4xl">
+    About <span class="text-neutral-500">Me</span>
   </h1>
   <div class="flex flex-wrap">
+    <!-- Left Section: Image -->
     <div class="w-full lg:w-1/2 lg:p-8">
       <div class="flex items-center justify-center">
-        <img class="rounded-2xl" src="/assets/images/about.jpg" alt="abotMeImage">
+        <img class="rounded-2xl" src="/assets/images/about.jpg" alt="aboutMeImage">
       </div>
     </div>
+
+    <!-- Right Section: About Text and Download Button -->
     <div class="w-full lg:w-1/2">
-        <div class="flex justify-center lg:justify-start">
-          <p class=" my-2 max-w-xl py-6">{{about}}</p>
-        </div>
+      <div class="flex justify-center lg:justify-start">
+        <p class="my-2 max-w-xl py-6">{{about}}</p>
       </div>
+      <!-- Download CV Button -->
+      <div class="flex justify-center lg:justify-start">
+        <a href="/assets/files/benResume.pdf" download="BenResume.pdf" class=" heroHighLights rounded-xl border-4 border-neutral-800 p-4 bg-neutral-800 text-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+          Download My CV
+        </a>
+      </div>
+    </div>
   </div>
 </div>
