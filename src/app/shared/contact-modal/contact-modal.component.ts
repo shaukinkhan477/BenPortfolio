@@ -3,7 +3,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { IAboutMe } from '../../components/header/header.component';
+import { IAboutMe } from '../models/about-me-interface';
 import { ModalService } from '../modal.service';
 
 @Component({
