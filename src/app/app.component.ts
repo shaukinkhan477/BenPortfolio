@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
 import { HeroComponent } from "./components/hero/hero.component";
@@ -11,6 +11,8 @@ import { TestimonialComponent } from "./components/testimonial/testimonial.compo
 import { ServicesComponent } from "./components/services/services.component";
 import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
 import { MyTeamComponent } from "./components/my-team/my-team.component";
+import { GoogleTagManagerService } from './shared/google-tag-manager.service';
+
 
 
 @Component({
@@ -20,6 +22,12 @@ import { MyTeamComponent } from "./components/my-team/my-team.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'MyPortfolio';
+
+  constructor(private gtmService: GoogleTagManagerService) {}
+
+  ngOnInit(): void {
+    this.gtmService.loadGTM();
+  }
 }
