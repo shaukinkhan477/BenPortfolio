@@ -10,12 +10,13 @@ import { ContactComponent } from "./components/contact/contact.component";
 import { TestimonialComponent } from "./components/testimonial/testimonial.component";
 import { ServicesComponent } from "./components/services/services.component";
 import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
+import { MyTeamComponent } from "./components/my-team/my-team.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent, ServicesComponent, ContactModalComponent],
+  imports: [RouterOutlet, HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent, ServicesComponent, ContactModalComponent, MyTeamComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
