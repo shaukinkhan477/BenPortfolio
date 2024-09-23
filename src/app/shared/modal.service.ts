@@ -5,14 +5,16 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalService {
+
   private showModalSubject = new Subject<boolean>();
+  
   showModal$ = this.showModalSubject.asObservable();
 
-  openModal() {
+  openModal(): void {
     this.showModalSubject.next(true);
   }
 
-  closeModal() {
+  closeModal(): void {
     this.showModalSubject.next(false);
   }
 }

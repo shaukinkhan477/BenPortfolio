@@ -1,15 +1,11 @@
+// header.component.ts
+
 import { ModalService } from '../../shared/modal.service';
 import { Component, HostListener, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
-
-export interface IAboutMe {
-  heading: string;
-  profession: string;
-  aboutMePara1: string;
-  aboutMePara2: string;
-}
+import { IAboutMe } from '../../shared/models/about-me-interface';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +16,7 @@ export interface IAboutMe {
 })
 export class HeaderComponent implements AfterViewInit {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private modalService: ModalService) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private modalService: ModalService) { }
 
   aboutMe: IAboutMe = {
     heading: 'About Me',
@@ -90,4 +86,5 @@ export class HeaderComponent implements AfterViewInit {
         }
       });
     }
-  }}
+  }
+}

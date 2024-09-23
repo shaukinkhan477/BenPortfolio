@@ -1,42 +1,50 @@
+<!-- header.component.html -->
+
 <nav class="mb-12 flex items-center justify-between py-6">
   <div class="flex flex-shrink-0 items-center">
     <img class="mx-2 w-16" src="/assets/images/benLogo2.png" alt="Logo">
   </div>
-   <!-- "Get in Touch" button -->
-   <button id="get-in-touch-btn" (click)="openGetInTouchModal()" class="px-6 py-2  text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
-      Get in Touch
-    </button>
+  <!-- "Get in Touch" button -->
+  <button id="get-in-touch-btn" (click)="openGetInTouchModal()"
+    class="px-6 py-2  text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
+    Get in Touch
+  </button>
 
   <!-- "Services" button -->
-  <button id="service-btn" class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
+  <button id="service-btn"
+    class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
     Services
   </button>
 
   <!-- Social Media Icons - Initially in Header -->
   <div id="social-icons" class="flex gap-6 items-center transition-all duration-300">
     <div class="group relative">
-      <i class="bi bi-linkedin mr-2 cursor-pointer text-2xl hover:text-blue-600 transition-transform transform hover:scale-110 duration-300 z-1000"></i>
+      <i
+        class="bi bi-linkedin mr-2 cursor-pointer text-2xl hover:text-blue-600 transition-transform transform hover:scale-110 duration-300 z-1000"></i>
       <div
         class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
         LinkedIN
       </div>
     </div>
     <div class="group relative">
-      <i class="bi bi-github cursor-pointer text-2xl hover:text-gray-800 transition-transform transform hover:scale-110 duration-300"></i>
+      <i
+        class="bi bi-github cursor-pointer text-2xl hover:text-gray-800 transition-transform transform hover:scale-110 duration-300"></i>
       <div
         class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
         GitHub
       </div>
     </div>
     <div class="group relative">
-      <i class="bi bi-twitter-x cursor-pointer text-2xl hover:text-blue-500 transition-transform transform hover:scale-110 duration-300"></i>
+      <i
+        class="bi bi-twitter-x cursor-pointer text-2xl hover:text-blue-500 transition-transform transform hover:scale-110 duration-300"></i>
       <div
         class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
         Twitter
       </div>
     </div>
     <div class="group relative">
-      <i class="bi bi-instagram cursor-pointer text-2xl hover:text-pink-600 transition-transform transform hover:scale-110 duration-300"></i>
+      <i
+        class="bi bi-instagram cursor-pointer text-2xl hover:text-pink-600 transition-transform transform hover:scale-110 duration-300"></i>
       <div
         class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
         Instagram
@@ -49,8 +57,9 @@
 <!-- Services Modal (Initially Hidden) -->
 <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
 
-  <div class="bg-neutral-800 w-full max-w-4xl h-auto p-8 rounded-lg shadow-lg flex flex-col justify-between items-center relative">
-   <h1 class="text-2xl font-semibold mb-4" >Services</h1>
+  <div
+    class="bg-neutral-800 w-full max-w-4xl h-auto p-8 rounded-lg shadow-lg flex flex-col justify-between items-center relative">
+    <h1 class="text-2xl font-semibold mb-4">Services</h1>
     <!-- Top Section: Cube on the left and Service Links on the right -->
     <div class="flex justify-between w-full">
       <!-- Rotating Cube (Left) -->
@@ -85,7 +94,8 @@
 
     <!-- Bottom Section: "Request a Service" Button -->
     <div class="mt-8 text-center w-full">
-      <button id="service-get-in-touch-btn" (click)="openGetInTouchModal()" class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition duration-300 ease-in-out">
+      <button id="service-get-in-touch-btn" (click)="openGetInTouchModal()"
+        class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition duration-300 ease-in-out">
         Request a Service
       </button>
     </div>
