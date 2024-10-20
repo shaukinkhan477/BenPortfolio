@@ -1,5 +1,3 @@
-// header.component.ts
-
 import { ModalService } from '../../shared/modal.service';
 import { Component, HostListener, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
