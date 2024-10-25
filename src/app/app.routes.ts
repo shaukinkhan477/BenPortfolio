@@ -10,6 +10,7 @@ import { ProjectsComponent } from './page-sections/projects/projects.component';
 import { ServicesComponent } from './page-sections/services/services.component';
 import { TechnologiesComponent } from './page-sections/technologies/technologies.component';
 import { TestimonialComponent } from './page-sections/testimonial/testimonial.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'technologies', component: TechnologiesComponent },
   { path: 'testimonials', component: TestimonialComponent },
+  { path: 'blog', component: BlogComponent },
   // Add more routes as needed
 ];
 

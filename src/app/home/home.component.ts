@@ -11,11 +11,14 @@ import { ServicesComponent } from '../page-sections/services/services.component'
 import { TechnologiesComponent } from '../page-sections/technologies/technologies.component';
 import { TestimonialComponent } from '../page-sections/testimonial/testimonial.component';
 import { MyTeamComponent } from "../page-sections/my-team/my-team.component";
+import { FooterComponent } from "../components/footer/footer.component";
+
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent, ServicesComponent, ContactModalComponent, MyTeamComponent],
+  imports: [HeaderComponent, HeroComponent, AboutComponent, TechnologiesComponent, ExperienceComponent, ProjectsComponent, ContactComponent, TestimonialComponent, ServicesComponent, ContactModalComponent, MyTeamComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

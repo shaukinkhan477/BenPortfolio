@@ -1,20 +1,22 @@
-import { ModalService } from '../../shared/modal.service';
+import { ModalService } from '../../shared/services/modal.service';
 import { Component, HostListener, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 import { IAboutMe } from '../../shared/models/about-me-interface';
+import { Router, RouterModule } from '@angular/router';
+import { BlogComponent } from "../../components/blog/blog.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BlogComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements AfterViewInit {
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService, private router: Router) { }
 
   // Open the "Get in Touch" modal
   openGetInTouchModal() {
@@ -77,6 +79,11 @@ export class HeaderComponent implements AfterViewInit {
       modal?.classList.remove('hidden');
       modal?.classList.add('flex');
     });
+  }
+
+
+  navigateToBlog() {
+    this.router.navigate(['/blog'])
   }
 
 

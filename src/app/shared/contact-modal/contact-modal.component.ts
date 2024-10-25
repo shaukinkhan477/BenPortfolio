@@ -4,7 +4,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
 
 import { CommonModule } from '@angular/common';
 import { IAboutMe } from '../models/about-me-interface';
-import { ModalService } from '../modal.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-contact-modal',
@@ -33,7 +33,7 @@ export class ContactModalComponent implements OnInit, AfterViewInit {
    * This allows the component to access the modal element and listen for click events outside the modal content.
    */
   @ViewChild('contactModal') contactModal!: ElementRef;
-  
+
   constructor(private modalService: ModalService, private renderer: Renderer2) {}
 
   /**
