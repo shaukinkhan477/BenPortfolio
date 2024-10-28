@@ -1,68 +1,63 @@
-.blog-container {
-  max-width: 800px;
+/* Animation for the blog summary */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-summary-container {
+  text-align: center;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial, sans-serif';
 }
 
-.blog-title {
-  font-size: 2.5em;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
+.blog-summary {
+  font-size: 1.25rem;
+  color: #F0F0F0;  /* Light grey color for better contrast */
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
-.blog-intro {
-  text-align: center;
-  font-size: 1.2em;
-  color: #555;
-  margin-bottom: 30px;
-}
 
-.blog-list {
-  margin-bottom: 30px;
-}
-
-.blog-post {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.blog-post-title {
-  font-size: 1.8em;
-  color: #007acc;
-}
-
-.blog-post-date {
-  font-size: 0.9em;
-  color: #999;
-}
-
-.blog-post-content {
-  font-size: 1.1em;
-  color: #333;
-  line-height: 1.6;
-}
-
-.add-section {
-  background: #f7f7f7;
+/* Styling the blog cards */
+.blog-posts {
   padding: 20px;
-  border-radius: 10px;
-  text-align: center;
 }
 
-.add-section h2 {
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 15px;
+.blog-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.add-section p {
-  font-size: 1.1em;
-  color: #555;
-  line-height: 1.6;
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+.read-more-link {
+  text-decoration: none;
+  color: #4F46E5;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  cursor: pointer;
+}
+
+nav a.active {
+  color: #4F46E5; /* Highlight color */
+  font-weight: bold;
+}
+

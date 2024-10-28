@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GoogleTagManagerService } from './shared/services/google-tag-manager.service';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./page-sections/header/header.component";
+import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
 

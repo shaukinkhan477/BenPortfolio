@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 import { IAboutMe } from '../../shared/models/about-me-interface';
 import { Router, RouterModule } from '@angular/router';
-import { BlogComponent } from "../../components/blog/blog.component";
+import { BlogComponent } from "../blog/blog.component";
 
 @Component({
   selector: 'app-header',

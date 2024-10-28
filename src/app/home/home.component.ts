@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ContactComponent } from '../page-sections/contact/contact.component';
 import { ContactModalComponent } from '../shared/contact-modal/contact-modal.component';
 import { ExperienceComponent } from '../page-sections/experience/experience.component';
-import { HeaderComponent } from '../page-sections/header/header.component';
+import { HeaderComponent } from '../components/header/header.component';
 import { HeroComponent } from '../page-sections/hero/hero.component';
 import { ProjectsComponent } from '../page-sections/projects/projects.component';
 import { ServicesComponent } from '../page-sections/services/services.component';

@@ -1,28 +1,40 @@
-<div class="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-md">
-  <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">Welcome to My Blog</h1>
-  <p class="text-center text-lg text-gray-600 mb-8">Explore my journey, tips, and insights as a developer. Stay tuned for more updates!</p>
+<div class="blog-summary-container">
+  <p class="blog-summary animate-fadeIn">
+    Explore my journey, tips, and insights as a developer. I have a passion for creating user-friendly, visually appealing, and functional web applications. Each project I take on helps me grow as a developer, and I enjoy sharing my knowledge with others. Through my blog, I hope to inspire others and contribute to the amazing community of developers. Stay tuned for more updates!
+  </p>
+</div>
 
-  <div class="space-y-8">
-    <div class="border-b pb-6" *ngFor="let blog of blogs">
-      <h2 class="text-3xl font-semibold text-blue-600">{{ blog.title }}</h2>
-      <p class="text-sm text-gray-500">{{ blog.date }}</p>
-      <p class="text-lg text-gray-800 mt-4">{{ blog.content }}</p>
+<div class="container mx-auto px-6 lg:px-16 py-12">
+  <h1 class="text-center text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent font-bold mb-8">Blogs</h1>
+
+  <nav class="flex justify-center space-x-4 mb-8 text-white">
+    <a (click)="filterBlogs(null)" class="hover:text-cyan-600 transition">All</a>
+    <a (click)="filterBlogs('Design')" class="hover:text-cyan-600 transition">Design</a>
+    <a (click)="filterBlogs('Angular')" class="hover:text-cyan-600 transition">Angular</a>
+    <a (click)="filterBlogs('Development')" class="hover:text-cyan-600 transition">Development</a>
+    <a (click)="filterBlogs('Leadership')" class="hover:text-cyan-600 transition">Leadership</a>
+    <a (click)="filterBlogs('Management')" class="hover:text-cyan-600 transition">Management</a>
+    <a (click)="filterBlogs('Web Architecture')" class="hover:text-cyan-600 transition">Web Architecture</a>
+  </nav>
+
+  <!-- Blog Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Display filtered blogs -->
+    <div *ngFor="let blog of filteredBlogs" class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h2 class="font-bold text-xl mb-2">{{ blog.title }}</h2>
+        <p class="text-sm text-gray-600 mb-4">{{ blog.excerpt }}</p>
+        <a href="{{ blog.url }}" class="text-blue-600 hover:underline">Read more</a>
+      </div>
     </div>
   </div>
 
-  <!-- Add Section -->
-  <div class="bg-gray-100 p-8 rounded-lg mt-12 text-center">
-    <h2 class="text-3xl font-semibold text-gray-800 mb-4">Why I Love Development</h2>
-    <p class="text-lg text-gray-700 mb-4">I have a passion for creating user-friendly, visually appealing, and functional web applications. Each project I take on helps me grow as a developer, and I enjoy sharing my knowledge with others.</p>
-    <p class="text-lg text-gray-700">Through my blog, I hope to inspire others and contribute to the amazing community of developers.</p>
+  <!-- Load more button -->
+  <div class="flex justify-center mt-8">
+    <button class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition">
+      Load more
+    </button>
   </div>
 </div>
-
-<div class="main-container">
-    <div class="background-container">
-        <div class="background-effect"></div>
-    </div>
-    <div class="content-container">
-
-    </div>
-</div>
+<app-footer style="color: white;"></app-footer>

@@ -17,9 +17,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Left logo and text -->
       <div>
-        <img src="/assets/images/benLogo2.png" alt="Logo" class="w-16 mb-4">
-        <p class="text-sm">Specializing in crafting robust and scalable web applications using Angular and modern web technologies.</p>
+        <img [src]= footerLogo alt="Logo" class="w-16 mb-4">
+        <p class="text-l text-gray-600">Specializing in crafting robust and scalable web applications using Angular and modern web technologies.</p>
+        <button (click)="openGetInTouchModal()" class="px-6 py-2 mt-10 bg-neutral-800 text-white rounded-md hover:bg-black transition">Get in Touch</button>
       </div>
+
 
       <!-- Skills -->
       <div>
@@ -55,7 +57,7 @@
           <li><a href="/tutorials" class="hover:text-cyan-600 transition">Angular Tutorials</a></li>
           <li><a href="/code-snippets" class="hover:text-cyan-600 transition">Code Snippets</a></li>
           <li><a href="/case-studies" class="hover:text-cyan-600 transition">Case Studies</a></li>
-          <li><a href="/open-source" class="hover:text-cyan-600 transition">Open Source Contributions</a></li>
+          <li><a href="https://github.com/benmed00?tab=repositories" target="_blank" class="hover:text-cyan-600 transition">Open Source Contributions</a></li>
         </ul>
       </div>
     </div>

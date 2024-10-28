@@ -12,21 +12,21 @@ export class TestimonialComponent {
 
   testimonials = [
     {
-      image: '/assets/images/testimonial-2.jpg',
+      image: '/assets/images/clientsImages/testimonial-2.jpg',
       name: 'John Doe',
       city: 'New York',
       country: 'USA',
       feedback: 'This team is amazing. They provided me with excellent service and their expertise in Angular is unmatched!'
     },
     {
-      image: '/assets/images/testimonial-1.jpg',
+      image: '/assets/images/clientsImages/testimonial-1.jpg',
       name: 'Jane Smith',
       city: 'London',
       country: 'UK',
       feedback: 'Their attention to detail is incredible. I highly recommend them to anyone looking for professional development services.'
     },
     {
-      image: '/assets/images/testimonial-3.jpg', 
+      image: '/assets/images/clientsImages/testimonial-3.jpg',
       name: 'Samuel Johnson',
       city: 'Sydney',
       country: 'Australia',

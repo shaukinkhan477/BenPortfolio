@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
+
+  MyheroSectionImage = '/assets/images/myImages/kevinRushProfile.png'
+  benResume = '/assets/files/BenResume.pdf'
   name = "Benyakoub M."
   profession = "Senior Web FrontEnd Consultant (Angular)"
   heroContent = "As a Senior Angular Consultant, I bring a wealth of experience in building dynamic, responsive, and scalable web applications using Angular and its modern ecosystem. Over the years, I have honed my expertise in developing front-end solutions that prioritize performance, maintainability, and user experience. I specialize in architecting complex, enterprise-level applications while following best practices in component design, state management, and TypeScript. With a strong understanding of Angular's inner workings, I am adept at solving intricate technical challenges, optimizing code, and mentoring development teams.";

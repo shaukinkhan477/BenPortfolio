@@ -9,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent{
 
+  AboutSectionImage = '/assets/images/myImages/about.jpg'
+
+  benResume = '/assets/files/BenResume.pdf'
+
   about = "Engineer in Computer science, software engineering. Stock Trader, Political and Economic Analyst. Looking for high added value opportunities, also enthusiastic to meet ambitious people.";
 }

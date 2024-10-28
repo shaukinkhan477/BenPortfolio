@@ -18,28 +18,28 @@ export class MyTeamComponent {
       teamMember: '1',
       name: 'Ben',
       role: 'Senior Angular Consultant',
-      imageUrl: '/assets/images/teamMember1Image.jpg',
+      imageUrl: '/assets/images/myTeamImages/teamMember1Image.jpg',
       link: '#'
     },
     {
       teamMember: '2',
       name: 'Arkni',
       role: 'JavaScript Architect',
-      imageUrl: '/assets/images/teamMember2Image.jpg',
+      imageUrl: '/assets/images/myTeamImages/teamMember2Image.jpg',
       link: '#'
     },
     {
       teamMember: '3',
       name: 'Chadi',
       role: 'Project Owner: Figma',
-      imageUrl: '/assets/images/teamMember3Image.jpg',
+      imageUrl: '/assets/images/myTeamImages/teamMember3Image.jpg',
       link: '#'
     },
     {
       teamMember: '4',
       name: 'Lakbir',
       role: 'Fullstack Consultant ',
-      imageUrl: '/assets/images/teamMember4Image.jpg',
+      imageUrl: '/assets/images/myTeamImages/teamMember4Image.jpg',
       link: '#'
     }
   ];
