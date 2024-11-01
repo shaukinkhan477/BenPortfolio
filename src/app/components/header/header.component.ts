@@ -5,18 +5,19 @@ import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 import { IAboutMe } from '../../shared/models/about-me-interface';
 import { Router, RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { BlogComponent } from "../blog/blog.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, BlogComponent],
+  imports: [CommonModule, FormsModule, BlogComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements AfterViewInit {
 
-  constructor(private modalService: ModalService, private router: Router) { }
+  constructor(public modalService: ModalService, private router: Router) { }
 
   // Open the "Get in Touch" modal
   openGetInTouchModal() {
@@ -83,7 +84,7 @@ export class HeaderComponent implements AfterViewInit {
 
 
   navigateToBlog() {
-    this.router.navigate(['/blog'])
+    this.router.navigate(['/blog']);
   }
 
 

@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GoogleTagManagerService } from './shared/services/google-tag-manager.service';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
-import { HomeComponent } from "./home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { CommonModule } from '@angular/common';
+import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HomeComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent implements OnInit {
-  title = 'MyPortfolio';
+  title = 'Ben Portfolio';
 
-  constructor(private gtmService: GoogleTagManagerService) { }
+  constructor(private gtmService: GoogleTagManagerService, private router: Router) { }
 
   ngOnInit(): void {
     this.gtmService.loadGTM();
+  }
+
+  showHeaderFooter(): boolean {
+    // Define routes where header and footer should be hidden
+    const noHeaderFooterRoutes = ['/login', '/register'];
+    return !noHeaderFooterRoutes.includes(this.router.url);
   }
 }

@@ -1,0 +1,68 @@
+<div *ngIf="blog" class="container mx-auto px-6 lg:px-16 py-12">
+  <span class="text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent mt-2">{{ blog.title }}</span>
+  <p class="text-lg text-gray-400">{{ blog.excerpt }}</p>
+  <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="w-full h-auto mt-4 mb-6">
+  <h1 class="text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading1}}</h1>
+  <p class="text-lg text-gray-400">{{blog.heading1Content}}</p>
+  <h2 class="text-3xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading2}}</h2>
+  <p class="text-lg text-gray-400">{{blog.heading2Content}}</p>
+  <h3 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading3}}</h3>
+  <p class="text-lg text-gray-400">{{blog.heading1Content}}</p>
+  <h4 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.summary}}</h4>
+  <p class="text-lg text-gray-400">{{blog.blogSummary}}</p>
+    <!-- Action Buttons -->
+  <div class="flex items-center space-x-4 mt-6">
+    <!-- Like Button -->
+   <!-- Like Button -->
+<button
+  (click)="onLike()"
+  mat-button
+  class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-green-700 transition"
+>
+  <mat-icon class="mr-2">thumb_up</mat-icon>
+  <span>{{ blog.likes || 0 }}</span>
+</button>
+
+<!-- Dislike Button -->
+<button
+  (click)="onDislike()"
+  mat-button
+  class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-red-700 transition"
+>
+  <mat-icon class="mr-2">thumb_down</mat-icon>
+  <span>{{ blog.dislikes || 0 }}</span>
+</button>
+
+
+    <!-- Share Button -->
+    <button (click)="share()" mat-button class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition">
+      <mat-icon class="mr-2">share</mat-icon>
+      <span>Share</span>
+    </button>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="mt-8">
+    <h2 class="text-2xl font-bold mb-4">Comments</h2>
+
+    <!-- Display existing comments -->
+    <div *ngFor="let comment of comments" class="mb-4">
+      <div class="flex items-center">
+        <span class="font-bold">{{ comment.author }}</span>
+        <span class="text-sm text-gray-500 ml-2">{{ comment.date | date:'short' }}</span>
+      </div>
+      <p class="text-gray-200">{{ comment.content }}</p>
+    </div>
+
+    <!-- Add a new comment -->
+    <div class="mt-6">
+      <h3 class="text-xl font-bold mb-2">Add a Comment</h3>
+      <textarea [(ngModel)]="newComment" class="w-full p-2 bg-gray-800 text-white rounded" rows="3" placeholder="Write your comment..."></textarea>
+      <button (click)="addComment()" class="mt-2 px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition">
+        Post Comment
+      </button>
+    </div>
+  </div>
+</div>
+
+

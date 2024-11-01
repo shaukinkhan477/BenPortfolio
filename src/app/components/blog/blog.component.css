@@ -1,4 +1,3 @@
-/* Animation for the blog summary */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -56,8 +55,11 @@ nav a {
   cursor: pointer;
 }
 
+
 nav a.active {
-  color: #4F46E5; /* Highlight color */
+  color: #00ACC1; /* Highlight color */
   font-weight: bold;
+  border-bottom: 2px solid #00ACC1; /* Add an underline to highlight */
 }
+
 
