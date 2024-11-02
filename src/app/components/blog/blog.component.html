@@ -26,7 +26,7 @@
 
 
 <div class="container mx-auto px-6 lg:px-16 py-12">
-  <h1 class="text-center text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent font-bold mb-8">Blogs</h1>
+  <h1 class="text-center text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent font-bold mb-8">Blogs Posts</h1>
 
 <nav class="flex justify-center space-x-4 mb-8 text-white">
   <a (click)="filterBlogs(null)" [ngClass]="{'active': isActiveCategory(null)}" class="hover:text-cyan-600 transition">All</a>
@@ -42,7 +42,7 @@
   <!-- Blog Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full ">
     <!-- Display filtered blogs -->
-    <div *ngFor="let blog of filteredBlogs" class="bg-gray-700 shadow-md rounded-lg overflow-hidden">
+    <div *ngFor="let blog of displayedBlogs" class="bg-gray-700 shadow-md rounded-lg overflow-hidden">
       <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="w-full h-48 object-cover">
       <div class="p-6">
         <h2 class="font-bold text-xl mb-2">{{ blog.title }}</h2>
@@ -53,8 +53,8 @@
   </div>
 
   <!-- Load more button -->
-  <div class="flex justify-center mt-8">
-    <button  class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition">
+  <div class="flex justify-center mt-8" *ngIf="displayedBlogs.length < filteredBlogs.length">
+    <button (click)="loadMore()"  class="px-6 py-2 bg-neutral-900 text-white font-semibold rounded-md hover:bg-neutral-950 transition">
       Load more
     </button>
   </div>

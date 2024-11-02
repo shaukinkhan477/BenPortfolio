@@ -27,6 +27,9 @@ export class BlogComponent implements OnInit, OnDestroy {
   selectedCategory: string | null = null;
   searchQuery: string = '';
   filteredBlogs: Blog[] = [];
+  displayedBlogs: Blog[] = [];
+  blogsPerPage: number = 3;
+  currentPage: number = 1;
   private searchSubject = new Subject<string>();
   private subscription = new Subscription();
 
@@ -36,6 +39,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.filteredBlogs = this.blogs;
+    this.updateDisplayedBlogs();
 
     this.subscription.add(
       this.searchSubject.pipe(debounceTime(300)).subscribe(() => {
@@ -70,11 +74,25 @@ export class BlogComponent implements OnInit, OnDestroy {
         (blog) =>
           blog.title.toLowerCase().includes(query) ||
           blog.excerpt.toLowerCase().includes(query)
-        // Add other fields if needed
       );
     }
 
     this.filteredBlogs = filtered;
+
+    // Reset pagination
+    this.currentPage = 1;
+    this.updateDisplayedBlogs();
+  }
+
+  updateDisplayedBlogs() {
+    const startIndex = 0;
+    const endIndex = this.currentPage * this.blogsPerPage;
+    this.displayedBlogs = this.filteredBlogs.slice(startIndex, endIndex);
+  }
+
+  loadMore() {
+    this.currentPage++;
+    this.updateDisplayedBlogs();
   }
 
   isActiveCategory(category: string | null): boolean {

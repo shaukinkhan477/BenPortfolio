@@ -87,5 +87,9 @@ export class HeaderComponent implements AfterViewInit {
     this.router.navigate(['/blog']);
   }
 
+  navigateToMyService() {
+    this.router.navigate(['/my-services'])
+  }
+
 
 }

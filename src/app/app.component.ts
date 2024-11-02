@@ -6,11 +6,12 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CommonModule } from '@angular/common';
 import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
+import { MyServicesComponent } from "./components/my-services/my-services.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, MyServicesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

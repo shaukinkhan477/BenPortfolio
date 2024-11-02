@@ -1,0 +1,18 @@
+
+.service-card {
+  /* background: linear-gradient(145deg, #111827, #1f2937); */
+  box-shadow: 10px 10px 20px #0f172a, -10px -10px 20px #374151;
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
+}
+
+.service-card:hover {
+  background: linear-gradient(145deg, #111827, #1f2937);
+}
+
+@media (min-width: 768px) {
+  .service-title {
+    font-size: 1.5rem;
+  }
+}
+
+

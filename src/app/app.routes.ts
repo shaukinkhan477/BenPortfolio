@@ -11,6 +11,7 @@ import { ProjectsComponent } from './home-page-sections/projects/projects.compon
 import { ServicesComponent } from './home-page-sections/services/services.component';
 import { TechnologiesComponent } from './home-page-sections/technologies/technologies.component';
 import { TestimonialComponent } from './home-page-sections/testimonial/testimonial.component';
+import { MyServicesComponent } from './components/my-services/my-services.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'testimonials', component: TestimonialComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
+  { path: 'my-services', component: MyServicesComponent},
 ];
 
 @NgModule({
