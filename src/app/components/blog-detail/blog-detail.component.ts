@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Blog } from 'src/app/shared/models/blog.model';
 import { BlogService } from 'src/app/shared/services/blog.service';
 import { FooterComponent } from "../footer/footer.component";
@@ -27,12 +27,17 @@ export class BlogDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.blog = this.blogService.getBlogById(id);
+  }
+
+   goBack() {
+    this.router.navigate(['/blog']);
   }
 
   onLike() {
