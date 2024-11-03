@@ -1,0 +1,7 @@
+.techName {
+   margin-left: 20px;
+ }
+
+.group:hover .techName {
+  display: none;
+}

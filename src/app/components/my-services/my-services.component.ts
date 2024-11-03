@@ -1,89 +1,44 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-// import * as AOS from 'aos';
+import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
 import { TechnologiesComponent } from "../../home-page-sections/technologies/technologies.component";
+import { Router } from '@angular/router';
+import { ModalService } from 'src/app/shared/services/modal.service';
+import { TypingEffectComponent } from '../typing-effect/typing-effect.component';
+import { Benefit } from 'src/app/shared/models/benefit.model';
+import { MyServices } from 'src/app/shared/models/myServices.model';
+import { MyServicesService } from 'src/app/shared/services/my-services.service';
+import { BenifitsOfMyServicesService } from 'src/app/shared/services/benifitsOfMyServices.service';
 
 @Component({
   selector: 'app-my-services',
   standalone: true,
-  imports: [CommonModule, TechnologiesComponent],
+  imports: [CommonModule, TechnologiesComponent, TypingEffectComponent],
   templateUrl: './my-services.component.html',
   styleUrl: './my-services.component.css'
 })
-export class MyServicesComponent {
-  services = [
-    {
-      title: 'IT Consulting',
-      description: 'Providing expert IT advice to improve your business processes.',
-      icon: 'bi bi-briefcase', // Bootstrap Icons class
-    },
-    {
-      title: 'Executive Coaching',
-      description: 'Empowering executives with the skills to lead effectively.',
-      icon: 'bi bi-person-bounding-box',
-    },
-    {
-      title: 'Web Design',
-      description: 'Creating visually appealing and user-friendly websites.',
-      icon: 'bi bi-laptop',
-    },
-    {
-      title: 'Interaction Design',
-      description: 'Designing interactive elements for enhanced user engagement.',
-      icon: 'bi bi-cursor',
-    },
-    {
-      title: 'Backup & Recovery Systems',
-      description: 'Implementing reliable backup solutions for data protection.',
-      icon: 'bi bi-shield-lock',
-    },
-    {
-      title: 'Web Consultant',
-      description: 'Offering expertise to optimize your web presence.',
-      icon: 'bi bi-globe',
-    },
-    {
-      title: 'Angular Consultant',
-      description: 'Specializing in Angular development and best practices.',
-      icon: 'bi bi-code-slash',
-    },
-    {
-      title: 'User Experience Consultant',
-      description: 'Improving user satisfaction through better usability.',
-      icon: 'bi bi-emoji-smile',
-    },
-    {
-      title: 'Web FrontEnd Architect',
-      description: 'Architecting scalable and maintainable front-end solutions.',
-      icon: 'bi bi-layers',
-    },
-    {
-      title: 'Web System Builder and Designer',
-      description: 'Building and designing robust web systems.',
-      icon: 'bi bi-building',
-    },
-    {
-      title: 'Custom Solutions',
-      description: 'Developing tailored solutions to meet unique business needs.',
-      icon: 'bi bi-puzzle',
-    },
-    {
-      title: 'Technical Writing',
-      description: 'Creating clear and concise technical documentation.',
-      icon: 'bi bi-journal-text',
-    },
-    {
-      title: 'SEO Services',
-      description: 'Optimizing your website to rank higher on search engines.',
-      icon: 'bi bi-graph-up',
-    },
-  ];
+export class MyServicesComponent implements OnInit {
 
-    ngAfterViewInit() {
+  services: MyServices[] = [];
+  benefits: Benefit[] = [];
+  constructor(public modalService: ModalService,
+    private router: Router,
+    private myServicesService: MyServicesService,
+    private BenifitsOfMyServicesService: BenifitsOfMyServicesService) { }
+
+  ngOnInit() {
+    // Fetch the data from the service
+    this.services = this.myServicesService.getServices();
+    this.benefits = this.BenifitsOfMyServicesService.getBenefits();
+
+    // Initialize AOS animations
     AOS.init({
       duration: 800,
       once: true,
     });
+  }
+  // Open the "Get in Touch" modal
+  openGetInTouchModal() {
+    this.modalService.openModal();  // Call the service to show the modal
   }
 }

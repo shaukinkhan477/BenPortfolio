@@ -1,0 +1,24 @@
+
+.typing-text {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: transparent;
+  background: linear-gradient(to right, #06b6d4, #3b82f6, #9333ea);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #fff;
+  margin-left: 2px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

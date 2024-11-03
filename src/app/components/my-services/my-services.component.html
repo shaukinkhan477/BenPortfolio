@@ -1,15 +1,33 @@
 <div class="container mx-auto px-6 lg:px-16 py-12">
-  <h1
-    class="pl-1 text-center bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
-  >
-  Services
-  </h1>
 
+  <div class="text-center mb-12">
+    <app-typing-effect  class="tagline"></app-typing-effect>
+  </div>
+
+  <!-- Header Section with Button -->
+  <div class="flex items-center justify-between mb-12">
+    <!-- Services Heading -->
+    <h1
+      class="services text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
+    >
+      Services
+    </h1>
+
+    <!-- "Request a Service" Button -->
+    <button
+      (click)="openGetInTouchModal()"
+      class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300"
+    >
+      Request a Service
+    </button>
+  </div>
+
+  <!-- Services Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <div
       *ngFor="let service of services"
       class="service-card bg-gray-800 rounded-lg p-6 text-white transform transition duration-500 hover:scale-105"
-      data-aos="fade-up"
+      data-aos="flip-left"
     >
       <div class="flex items-center mb-4">
         <i [class]="service.icon + ' text-4xl text-cyan-600 mr-4'"></i>
@@ -18,6 +36,33 @@
       <p class="text-gray-300">{{ service.description }}</p>
     </div>
   </div>
+
+    <!-- "Why Work With Me?" Section -->
+  <div class="mt-16">
+    <h2
+      class="services whyWork text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
+    >
+      Why Work With Me?
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Benefit Cards -->
+      <div
+        *ngFor="let benefit of benefits"
+        class="benefit-card mt-5 bg-gray-800 rounded-lg p-6 text-white transform transition duration-500 hover:scale-105"
+        data-aos="fade-up"
+      >
+        <div class="flex items-center mb-4">
+          <i [class]="benefit.icon + ' text-4xl text-green-500 mr-4'"></i>
+          <h3 class="text-2xl font-bold">{{ benefit.title }}</h3>
+        </div>
+        <p class="text-gray-300">{{ benefit.description }}</p>
+      </div>
+    </div>
+  </div>
+
 </div>
-<h1  class="text-center">My Favorite</h1>
+
+
+<!-- Favorite Tech Stack Section -->
+<h1 class="technologies techtext-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">My Favorite Tech Stack</h1>
 <app-technologies></app-technologies>

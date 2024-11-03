@@ -1,12 +1,42 @@
 
+.services {
+  margin-left: 450px;
+  font-size: 40px;
+}
+
+.technologies {
+  margin-left: 416px;
+  font-size: 40px;
+}
+
+.whyWork {
+  margin-left: 400px;
+}
 .service-card {
-  /* background: linear-gradient(145deg, #111827, #1f2937); */
-  box-shadow: 10px 10px 20px #0f172a, -10px -10px 20px #374151;
-  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
+  background: linear-gradient(145deg, #111827, #1f2937);
+  /* box-shadow: 10px 10px 20px #0f172a, -10px -10px 20px #374151; */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .service-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  /* background: linear-gradient(145deg, #111827, #1f2937); */
+}
+
+/* Benefit Card Styles */
+.benefit-card {
+  margin-top: 30px;
+  background: linear-gradient(145deg, #1f2937, #111827);
+  box-shadow: 10px 10px 20px #0f172a, -10px -10px 20px #374151;
+}
+
+.benefit-card:hover {
   background: linear-gradient(145deg, #111827, #1f2937);
+}
+
+
+.tagline {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
