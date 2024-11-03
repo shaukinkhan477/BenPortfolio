@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Benefit } from '../models/benefit.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +8,8 @@ import { Benefit } from '../models/benefit.model';
 export class BenifitsOfMyServicesService {
   constructor() { }
 
-    getBenefits(): Benefit[] {
-    return [
+    getBenefits(): Observable<Benefit[]> {
+    return of ([
           {
       title: 'Expertise',
       description: 'Over 10+ years of experience in web consulting and architecture.',
@@ -44,6 +45,6 @@ export class BenifitsOfMyServicesService {
       description: 'Committed to delivering high-quality, robust solutions.',
       icon: 'bi bi-check-circle',
     },
-    ];
+    ]);
   }
 }

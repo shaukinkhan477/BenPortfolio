@@ -119,3 +119,10 @@ button:hover {
   width: auto;
 }
 
+/* Active button style */
+button.active {
+  background-color: #1f2937; /* Darker background */
+  color: #38bdf8; /* Accent color (e.g., cyan-400) */
+  border-bottom: 2px solid #38bdf8; /* Bottom border to indicate active state */
+}
+

@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { Benefit } from '../models/benefit.model';
 import { MyServices } from '../models/myServices.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,8 @@ import { MyServices } from '../models/myServices.model';
 export class MyServicesService {
   constructor() {}
 
-  getServices(): MyServices[] {
-    return [
+  getServices(): Observable <MyServices[]> {
+    return of ([
 {
       title: 'IT Consulting',
       description: 'Providing expert IT advice to improve your business processes.',
@@ -76,6 +76,6 @@ export class MyServicesService {
       description: 'Optimizing your website to rank higher on search engines.',
       icon: 'bi bi-graph-up',
     },
-    ];
+    ]);
   }
 }

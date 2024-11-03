@@ -28,8 +28,16 @@ export class MyServicesComponent implements OnInit {
 
   ngOnInit() {
     // Fetch the data from the service
-    this.services = this.myServicesService.getServices();
-    this.benefits = this.BenifitsOfMyServicesService.getBenefits();
+    this.myServicesService.getServices().subscribe((data) => {
+    this.services = data;
+  });
+
+
+
+    this.BenifitsOfMyServicesService.getBenefits().subscribe((data) => {
+    this.benefits = data;
+  });
+
 
     // Initialize AOS animations
     AOS.init({
@@ -37,8 +45,9 @@ export class MyServicesComponent implements OnInit {
       once: true,
     });
   }
+
   // Open the "Get in Touch" modal
   openGetInTouchModal() {
-    this.modalService.openModal();  // Call the service to show the modal
+    this.modalService.openModal();
   }
 }

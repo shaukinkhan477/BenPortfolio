@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -14,10 +15,11 @@ export class ContactComponent implements OnInit {
 
   contact = {
     address: 'Nantes, Pays de la Loire, France',
-    phoneNo: '+33 4555 666 00',
-    email: 'benyakoub.pro@gmail.com',
+    phoneNo1: '+33 (752) 261-100',
+    phoneNo2: '+33 (758) 758-268',
+    email1: 'benyakoub.pro@gmail.com',
+    email2: 'benyakoub.fr@gmail.com',
   }
-
 
   map!: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11'; // Use different styles like 'light-v10', 'dark-v10', etc.
