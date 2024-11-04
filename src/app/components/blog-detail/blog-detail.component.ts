@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Blog } from 'src/app/shared/models/blog.model';
 import { BlogService } from 'src/app/shared/services/blog.service';
@@ -8,6 +8,7 @@ import { HeaderComponent } from '../header/header.component';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-detail',
@@ -23,12 +24,13 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.css'],
 })
-export class BlogDetailComponent implements OnInit {
+export class BlogDetailComponent implements OnInit, OnDestroy {
   blog?: Blog;
-  relatedBlogs: Blog[] = []; // Add this line
+  relatedBlogs: Blog[] = [];
 
   comments: { author: string; content: string; date: Date }[] = [];
   newComment: string = '';
+  private subscriptions = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
@@ -39,19 +41,33 @@ export class BlogDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id')!;
-    this.blog = this.blogService.getBlogById(id);
+    const blogSubscription = this.blogService.getBlogById(id).subscribe((blog) => {
+      this.blog = blog;
 
-    if (this.blog) {
-      this.fetchRelatedBlogs();
-    }
+      if (this.blog) {
+        this.fetchRelatedBlogs();
+      } else {
+        // Handle the case when the blog is not found
+        this.router.navigate(['/blog']); // Redirect to the blog list or show an error message
+      }
+    });
+
+    this.subscriptions.add(blogSubscription);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
   fetchRelatedBlogs() {
     if (this.blog) {
-      const allBlogs = this.blogService.getBlogs();
-      this.relatedBlogs = allBlogs.filter(
-        (b) => b.category === this.blog!.category && b.id !== this.blog!.id
-      );
+      const relatedBlogsSubscription = this.blogService.getBlogs().subscribe((allBlogs) => {
+        this.relatedBlogs = allBlogs.filter(
+          (b) => b.category === this.blog!.category && b.id !== this.blog!.id
+        );
+      });
+
+      this.subscriptions.add(relatedBlogsSubscription);
     }
   }
 

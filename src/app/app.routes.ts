@@ -12,6 +12,7 @@ import { ServicesComponent } from './home-page-sections/services/services.compon
 import { TechnologiesComponent } from './home-page-sections/technologies/technologies.component';
 import { TestimonialComponent } from './home-page-sections/testimonial/testimonial.component';
 import { MyServicesComponent } from './components/my-services/my-services.component';
+import { WhyMeComponent } from './components/why-me/why-me.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'my-services', component: MyServicesComponent},
+  { path: 'why-me', component: WhyMeComponent},
 ];
 
 @NgModule({

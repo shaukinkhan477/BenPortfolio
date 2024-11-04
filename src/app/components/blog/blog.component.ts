@@ -1,3 +1,5 @@
+// src/app/components/blog/blog.component.ts
+
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -33,13 +35,15 @@ export class BlogComponent implements OnInit, OnDestroy {
   private searchSubject = new Subject<string>();
   private subscription = new Subscription();
 
-  constructor(private blogService: BlogService) {
-    this.blogs = this.blogService.getBlogs();
-  }
+  constructor(private blogService: BlogService) {}
 
   ngOnInit() {
-    this.filteredBlogs = this.blogs;
-    this.updateDisplayedBlogs();
+    this.blogService.getBlogs().subscribe((blogs) => {
+      this.blogs = blogs;
+      this.filteredBlogs = this.blogs;
+      this.applyFilters();
+      this.updateDisplayedBlogs();
+    });
 
     this.subscription.add(
       this.searchSubject.pipe(debounceTime(300)).subscribe(() => {
@@ -62,10 +66,16 @@ export class BlogComponent implements OnInit, OnDestroy {
   }
 
   applyFilters() {
+    if (!this.blogs) {
+      return;
+    }
+
     let filtered = this.blogs;
 
     if (this.selectedCategory) {
-      filtered = filtered.filter((blog) => blog.category === this.selectedCategory);
+      filtered = filtered.filter(
+        (blog) => blog.category === this.selectedCategory
+      );
     }
 
     if (this.searchQuery && this.searchQuery.trim() !== '') {

@@ -1,3 +1,7 @@
+<div class="container mx-auto px-6 lg:px-16 py-12">
+<div>
+<h1 class=" blogs text-center techtext-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">Blogs Posts</h1>
+</div>
 <div class="blog-summary-container">
   <p class="blog-summary animate-fadeIn">
     Explore my journey, tips, and insights as a developer. I have a passion for creating user-friendly, visually appealing, and functional web applications. Each project I take on helps me grow as a developer, and I enjoy sharing my knowledge with others. Through my blog, I hope to inspire others and contribute to the amazing community of developers. Stay tuned for more updates!
@@ -25,8 +29,6 @@
 </div>
 
 
-<div class="container mx-auto px-6 lg:px-16 py-12">
-  <h1 class="text-center text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent font-bold mb-8">Blogs Posts</h1>
 
 <nav class="flex justify-center space-x-4 mb-8 text-white">
   <a (click)="filterBlogs(null)" [ngClass]="{'active': isActiveCategory(null)}" class="hover:text-cyan-600 transition">All</a>
@@ -37,7 +39,6 @@
   <a (click)="filterBlogs('Management')" [ngClass]="{'active': isActiveCategory('Management')}" class="hover:text-cyan-600 transition">Management</a>
   <a (click)="filterBlogs('Web Architecture')" [ngClass]="{'active': isActiveCategory('Web Architecture')}" class="hover:text-cyan-600 transition">Web Architecture</a>
 </nav>
-
 
   <!-- Blog Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full ">
@@ -58,6 +59,7 @@
       Load more
     </button>
   </div>
+
 </div>
 
 

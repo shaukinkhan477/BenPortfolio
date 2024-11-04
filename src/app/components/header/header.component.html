@@ -3,19 +3,19 @@
    <a routerLink="/home"><img class="mx-2 w-16" src="/assets/images/logo/benLogo2.png" alt="Logo"></a>
   </div>
 
-  <div class="px-1 py-1 flex items-center">
+  <div class="px-1 py-1 ml-72 flex items-center">
 
 
   <!-- "Get in Touch" button -->
   <button id="get-in-touch-btn" (click)="openGetInTouchModal()"
-    class="px-6 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
+    class="px-4 py-2 mr-6 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
     Get in Touch
   </button>
 
     <!-- "About Me" button (conditionally displayed) -->
     <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()"
             [ngClass]="{ 'active': isActive('/home') }"
-       class="px-6 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
+       class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out ml-4">
       About
     </button>
 
@@ -26,12 +26,20 @@
     Services
   </button>
 
+   <!-- "Why Me?" button -->
+  <button id="blogs-btn" (click)="whyMe()"
+          [ngClass]="{ 'active': isActive('/why-me') }"
+    class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
+    Why Me?
+  </button>
+
   <!-- "Blogs" button -->
   <button id="blogs-btn" (click)="navigateToBlog()"
           [ngClass]="{ 'active': isActive('/blog') }"
     class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
     Blogs
   </button>
+
   </div>
 
 <!-- Social Media Icons -->

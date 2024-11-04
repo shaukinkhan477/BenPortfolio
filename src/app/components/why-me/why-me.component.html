@@ -1,0 +1,62 @@
+<div class="container mx-auto px-6 lg:px-16 py-12">
+
+<!-- "Why Work With Me?" Section -->
+  <div class="mt-12">
+    <div class="flex items-center justify-between mb-12">
+    <h2 class="services whyWork text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">
+      Why Work With Me?
+    </h2>
+        <!-- "Request a Service" Button -->
+    <button
+      (click)="openGetInTouchModal()"
+      class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300"
+    >
+      Request a Service
+    </button>
+    </div>
+  <div class="border-b border-neutral-900 pb-4 lg:mb-35"></div>
+  <div class="border-neutral-800 pb-14">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <!-- Box 1 -->
+      <div
+        class="heroHighLights rounded-2xl border-4 border-neutral-800 p-4 bg-neutral-800 text-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+        <h4>10+ Years of Experience</h4>
+      </div>
+
+      <!-- Box 2 -->
+      <div
+        class="heroHighLights rounded-2xl border-4 border-neutral-800 p-4 bg-neutral-800 text-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+        <h4>26+ Projects Completed</h4>
+      </div>
+
+      <!-- Box 3 -->
+      <div
+        class="heroHighLights rounded-2xl border-4 border-neutral-800 p-4 bg-neutral-800 text-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+        <h4>12+ Technologies Mastered</h4>
+      </div>
+
+      <!-- Box 4 -->
+      <div
+        class="heroHighLights rounded-2xl border-4 border-neutral-800 p-4 bg-neutral-800 text-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+        <h4>500+ Code Commits</h4>
+      </div>
+    </div>
+  </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Benefit Cards -->
+      <div
+        *ngFor="let benefit of benefits"
+        class="benefit-card mt-5 bg-gray-800 rounded-lg p-6 text-white transform transition duration-500 hover:scale-105"
+        data-aos="fade-up"
+      >
+        <div class="flex items-center mb-4">
+          <i [class]="benefit.icon + ' text-4xl text-green-500 mr-4'"></i>
+          <h3 class="text-2xl font-bold">{{ benefit.title }}</h3>
+        </div>
+        <p class="text-gray-300">{{ benefit.description }}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <h1 class="technologies techtext-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">Mastered</h1>
+  <app-technologies></app-technologies>

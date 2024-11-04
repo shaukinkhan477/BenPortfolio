@@ -1,9 +1,7 @@
 import { ModalService } from '../../shared/services/modal.service';
-import { Component, HostListener, Inject, PLATFORM_ID, AfterViewInit, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { isPlatformBrowser } from '@angular/common';
-import { IAboutMe } from '../../shared/models/about-me-interface';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { BlogComponent } from "../blog/blog.component";
@@ -15,7 +13,7 @@ import { BlogComponent } from "../blog/blog.component";
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements AfterViewInit, OnInit {
+export class HeaderComponent implements OnInit {
 
   isHomePage: boolean = false;
   currentRoute: string = '';
@@ -51,50 +49,6 @@ export class HeaderComponent implements AfterViewInit, OnInit {
     }
   }
 
-
-  // Open the modal when the "Get in Touch" button is clicked
-  ngAfterViewInit() {
-    const modal = document.getElementById('contact-modal');
-
-    // Service Modal Logic
-    const serviceBtn = document.getElementById('service-btn');
-    const serviceModal = document.getElementById('service-modal');
-    const closeServiceModalBtn = document.getElementById('close-service-modal');
-
-    // Show "Services" modal when clicked
-    serviceBtn?.addEventListener('click', () => {
-      serviceModal?.classList.remove('hidden');
-      serviceModal?.classList.add('flex');
-    });
-
-    // Close "Services" modal
-    closeServiceModalBtn?.addEventListener('click', () => {
-      serviceModal?.classList.add('hidden');
-      serviceModal?.classList.remove('flex');
-    });
-
-    // Close the modal when clicking outside the modal content
-    window.addEventListener('click', (e) => {
-      if (e.target === serviceModal) {
-        serviceModal?.classList.add('hidden');
-        serviceModal?.classList.remove('flex');
-      }
-    });
-
-
-    // Handle "Get in Touch" button in the service modal
-    const serviceGetInTouchBtn = document.getElementById('service-get-in-touch-btn');
-    serviceGetInTouchBtn?.addEventListener('click', () => {
-      // Close the service modal
-      serviceModal?.classList.add('hidden');
-      serviceModal?.classList.remove('flex');
-
-      // Open the "Get in Touch" modal
-      modal?.classList.remove('hidden');
-      modal?.classList.add('flex');
-    });
-  }
-
     // Method to check if the current route is '/home'
   // checkCurrentRoute() {
   //   this.isHomePage = this.router.url === '/home' || this.router.url === '/';
@@ -114,7 +68,7 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 
    // Open the "Get in Touch" modal
   openGetInTouchModal() {
-    this.modalService.openModal();  // Call the service to show the modal
+    this.modalService.openModal();
   }
 
     navigateToHome() {
@@ -130,5 +84,8 @@ export class HeaderComponent implements AfterViewInit, OnInit {
     this.router.navigate(['/my-services'])
   }
 
+  whyMe() {
+    this.router.navigate(['/why-me'])
+  }
 
 }

@@ -9,6 +9,11 @@
   }
 }
 
+.blogs {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
 .blog-summary-container {
   text-align: center;
   max-width: 900px;

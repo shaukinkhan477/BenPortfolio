@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Blog } from '../models/blog.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -108,12 +109,13 @@ private blogs:Blog[] = [
   ];
 
 
-  getBlogs(): Blog[] {
-    return this.blogs;
+  getBlogs(): Observable<Blog[]> {
+    return of(this.blogs);
   }
 
-  getBlogById(id: number): Blog | undefined {
-    return this.blogs.find(blog => blog.id === id);
+   getBlogById(id: number): Observable<Blog | undefined> {
+    const blog = this.blogs.find((blog) => blog.id === id);
+    return of(blog);
   }
 
   }
