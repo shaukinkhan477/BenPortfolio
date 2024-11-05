@@ -45,6 +45,11 @@ export class BlogComponent implements OnInit, OnDestroy {
       this.updateDisplayedBlogs();
     });
 
+    (error: any) => {
+    console.error('Error fetching blogs:', error);
+    // Handle the error, show a message to the user, etc.
+  }
+
     this.subscription.add(
       this.searchSubject.pipe(debounceTime(300)).subscribe(() => {
         this.applyFilters();

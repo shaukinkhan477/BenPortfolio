@@ -53,6 +53,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
     });
 
     this.subscriptions.add(blogSubscription);
+
   }
 
   ngOnDestroy() {
@@ -71,7 +72,8 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  goBack() {
+
+  backToAllBlogs() {
     this.router.navigate(['/blog']);
   }
 

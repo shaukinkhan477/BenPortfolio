@@ -24,7 +24,7 @@ export class ContactModalComponent implements OnInit, AfterViewInit {
   aboutMe: IAboutMe = {
     heading: 'About Me',
     profession: 'Senior Web FrontEnd Consultant (Angular)',
-    aboutMePara1: 'I m Ben, a Senior Angular Consultant. I love working with web technologies and crafting interactive and responsive user interfaces',
+    aboutMePara1: 'I m Ben, a Senior Angular Consultant with 10+ years of experience. I love working with web technologies and crafting interactive and responsive user interfaces',
     aboutMePara2: 'I like to solve design problems, create user-friendly interfaces, and develop rich web experiences & applications.'
   }
 
