@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { BlogComponent } from "../blog/blog.component";
+import { BookConsultationModalComponent } from "../../shared/modals/book-consultation-modal/book-consultation-modal.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, BlogComponent, RouterLink],
+  imports: [CommonModule, FormsModule, BlogComponent, RouterLink, BookConsultationModalComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
   isHomePage: boolean = false;
   currentRoute: string = '';
+  isBookConsultationOpen = false;
 
   constructor(public modalService: ModalService, private router: Router) { }
 
@@ -61,9 +63,15 @@ export class HeaderComponent implements OnInit {
     this.currentRoute = currentUrl;
   }
 
-    // Method to check if a given route is active
+
+  // Method to check if a given route is active
   isActive(route: string): boolean {
     return this.currentRoute.startsWith(route);
+  }
+
+    openBookConsultationModal() {
+    // Open the Book Consultation modal using the service
+    this.modalService.openBookConsultationModal();
   }
 
    // Open the "Get in Touch" modal

@@ -54,6 +54,8 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(blogSubscription);
 
+     window.scrollTo(0, 0);
+
   }
 
   ngOnDestroy() {

@@ -5,13 +5,14 @@ import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CommonModule } from '@angular/common';
-import { ContactModalComponent } from "./shared/contact-modal/contact-modal.component";
+import { ContactModalComponent } from "./shared/modals/contact-modal/contact-modal.component";
 import { MyServicesComponent } from "./components/my-services/my-services.component";
+import { BookConsultationModalComponent } from "./shared/modals/book-consultation-modal/book-consultation-modal.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, MyServicesComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, MyServicesComponent, BookConsultationModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

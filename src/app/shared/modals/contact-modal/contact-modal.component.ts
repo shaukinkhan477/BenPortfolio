@@ -3,8 +3,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { IAboutMe } from '../models/about-me-interface';
-import { ModalService } from '../services/modal.service';
+import { IAboutMe } from '../../models/about-me-interface';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-contact-modal',

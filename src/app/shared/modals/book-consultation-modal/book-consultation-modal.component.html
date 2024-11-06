@@ -1,0 +1,182 @@
+<!-- Modal Overlay -->
+<div
+  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+  *ngIf="isOpen"
+>
+  <!-- Modal Content -->
+  <div
+    class="bg-neutral-800 text-white rounded-lg shadow-lg max-w-md w-full mx-4 flex flex-col max-h-[90vh]"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center border-b border-gray-700 px-6 py-4">
+      <h2 id="modal-title" class="text-xl font-semibold">
+        Book Consultation
+      </h2>
+      <button
+        class="text-gray-400 hover:text-gray-200 focus:outline-none"
+        (click)="closeModal()"
+      >
+        <span class="sr-only">Close</span>
+        &times;
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div #modalBody class="px-6 py-4 flex-grow overflow-y-auto">
+      <!-- Step 1 -->
+      <div *ngIf="step === 1">
+        <!-- Consultation Details -->
+        <div class="mb-6">
+          <h3 class="font-medium mb-2 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent">
+            Initial Consultation With Ben
+          </h3>
+          <p class="flex items-center mb-1">
+            <i class="bi bi-clock text-blue-400 mr-2"></i> 30 min
+          </p>
+          <p class="flex items-center">
+            <i class="bi bi-laptop text-blue-400 mr-2"></i>
+            Web conferencing details provided upon confirmation.
+          </p>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="mb-6">
+          <label for="date" class="block font-medium mb-2">Select a Date <span class="text-red-500">*</span></label>
+          <input
+            id="date"
+            type="date"
+            [(ngModel)]="selectedDate"
+            [min]="minDate"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Time Slots -->
+        <div *ngIf="selectedDate" class="mb-6">
+          <label class="block font-medium mb-2">Available Time Slots <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-3 gap-2">
+            <button
+              *ngFor="let time of availableTimes"
+              (click)="selectTime(time)"
+              [ngClass]="{
+                'bg-blue-500 text-white': selectedTime === time,
+                'bg-neutral-700 text-gray-300': selectedTime !== time
+              }"
+              class="py-2 rounded-md text-center hover:bg-blue-600 focus:outline-none"
+            >
+              {{ time }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Time Zone Selection -->
+        <div *ngIf="selectedTime" class="mb-6">
+          <label for="timezone" class="block font-medium mb-2">
+            Select Your Time Zone <span class="text-red-500">*</span>
+          </label>
+          <select
+            id="timezone"
+            [(ngModel)]="selectedTimeZone"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option [ngValue]="null" disabled selected>Select Time Zone</option>
+            <option *ngFor="let tz of timeZones" [value]="tz">{{ tz }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div *ngIf="step === 2">
+        <!-- Back Arrow -->
+        <button
+          class="text-gray-400 hover:text-gray-200 focus:outline-none mb-4"
+          (click)="previousStep()"
+        >
+          <i class="bi bi-arrow-left"></i> Back
+        </button>
+
+        <!-- Selected Information -->
+        <div class="bg-neutral-700 border border-gray-600 rounded-md p-4 mb-6">
+          <h3 class="font-medium mb-2 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent">
+            Initial Consultation With Ben
+          </h3>
+          <p class="flex items-center mb-1">
+            <i class="bi bi-clock text-blue-400 mr-2"></i> 30 min
+          </p>
+          <p class="mb-1">
+            <strong>Date:</strong> {{ selectedDate | date }}
+          </p>
+          <p class="mb-1">
+            <strong>Time:</strong> {{ selectedTime }} ({{ selectedTimeZone }})
+          </p>
+        </div>
+
+        <!-- User Details Form -->
+        <div class="mb-6">
+          <label for="name" class="block font-medium mb-2">Your Name <span class="text-red-500">*</span></label>
+          <input
+            id="name"
+            type="text"
+            [(ngModel)]="name"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label for="email" class="block font-medium mb-2">Your Email <span class="text-red-500">*</span></label>
+          <input
+            id="email"
+            type="email"
+            [(ngModel)]="email"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label for="guestEmails" class="block font-medium mb-2">Guest Emails</label>
+          <input
+            id="guestEmails"
+            type="text"
+            [(ngModel)]="guestEmails"
+            placeholder="Optional, separate emails with commas"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label for="message" class="block font-medium mb-2">
+            Please share anything that will help prepare for our meeting.
+          </label>
+          <textarea
+            id="message"
+            [(ngModel)]="message"
+            rows="4"
+            class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="px-6 py-4 border-t border-gray-700">
+      <div class="text-right">
+        <!-- Step 1 Footer -->
+        <button
+          *ngIf="step === 1"
+          (click)="nextStep()"
+          [disabled]="!selectedDate || !selectedTime || !selectedTimeZone"
+          class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none"
+        >
+          Next
+        </button>
+
+        <!-- Step 2 Footer -->
+        <button
+          *ngIf="step === 2"
+          (click)="scheduleEvent()"
+          [disabled]="!name || !email"
+          class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none"
+        >
+          Schedule Event
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

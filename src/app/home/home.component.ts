@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ContactModalComponent } from '../shared/contact-modal/contact-modal.component';
+import { ContactModalComponent } from '../shared/modals/contact-modal/contact-modal.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { HeroComponent } from "../home-page-sections/hero/hero.component";
 import { AboutComponent } from "../home-page-sections/about/about.component";

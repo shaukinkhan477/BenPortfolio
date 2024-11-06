@@ -1,101 +1,105 @@
 <nav class="mb-12 flex items-center justify-between py-6">
   <div class="flex flex-shrink-0 items-center">
-   <a routerLink="/home"><img class="mx-2 w-16" src="/assets/images/logo/benLogo2.png" alt="Logo"></a>
+    <a routerLink="/home"><img class="mx-2 w-16" src="/assets/images/logo/benLogo2.png" alt="Logo"></a>
   </div>
 
-  <div class="px-1 py-1 ml-72 flex items-center">
+  <div class="flex items-center">
+    <!-- "Book Consultation" Button -->
+    <button id="book-consultation-btn" (click)="openBookConsultationModal()"
+      class="px-4 py-2 sm:block font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300">
+      Book Consultation
+    </button>
+  </div>
 
-
-  <!-- "Get in Touch" button -->
-  <button id="get-in-touch-btn" (click)="openGetInTouchModal()"
-    class="px-4 py-2 mr-6 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
-    <!-- class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300" -->
-    Get in Touch
-  </button>
+  <div class="px-1 py-1 flex items-center">
 
     <!-- "About Me" button (conditionally displayed) -->
-    <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()"
-            [ngClass]="{ 'active': isActive('/home') }"
-       class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out ml-4">
+    <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()" [ngClass]="{ 'active': isActive('/home') }"
+      class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out">
       About
     </button>
 
-  <!-- "Services" button -->
-  <button id="service-btn" (click)="navigateToMyService()"
-          [ngClass]="{ 'active': isActive('/my-services') }"
-    class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
-    Services
-  </button>
 
-   <!-- "Why Me?" button -->
-  <button id="blogs-btn" (click)="whyMe()"
-          [ngClass]="{ 'active': isActive('/why-me') }"
-    class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
-    Why Me?
-  </button>
+    <!-- "Get in Touch" button -->
+    <button id="get-in-touch-btn" (click)="openGetInTouchModal()"
+      class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ease-in-out ml-4">
+      <!-- class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300" -->
+      Get in Touch
+    </button>
 
-  <!-- "Blogs" button -->
-  <button id="blogs-btn" (click)="navigateToBlog()"
-          [ngClass]="{ 'active': isActive('/blog') }"
-    class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
-    Blogs
-  </button>
+
+
+    <!-- "Services" button -->
+    <button id="service-btn" (click)="navigateToMyService()" [ngClass]="{ 'active': isActive('/my-services') }"
+      class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
+      Services
+    </button>
+
+
+    <!-- "Blogs" button -->
+    <button id="blogs-btn" (click)="navigateToBlog()" [ngClass]="{ 'active': isActive('/blog') }"
+      class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
+      Blogs
+    </button>
+
+    <!-- "Why Me?" button -->
+    <button id="blogs-btn" (click)="whyMe()" [ngClass]="{ 'active': isActive('/why-me') }"
+      class="px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 transition duration-300 ml-4">
+      Why Me?
+    </button>
 
   </div>
 
-<!-- Social Media Icons -->
-<div id="social-icons" class="flex gap-6 items-center transition-all duration-300 z-100">
-  <!-- LinkedIn -->
-  <div class="group relative">
-    <a href="https://www.linkedin.com/in/benyakoub/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-      <i
-        class="bi bi-linkedin mr-2 cursor-pointer text-2xl hover:text-blue-600 transition-transform transform hover:scale-110 duration-300"></i>
-      <div
-        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
-        LinkedIn
-      </div>
-    </a>
-  </div>
+  <!-- Social Media Icons -->
+  <div id="social-icons" class="flex gap-6 items-center transition-all duration-300 z-100">
+    <!-- LinkedIn -->
+    <div class="group relative">
+      <a href="https://www.linkedin.com/in/benyakoub/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i
+          class="bi bi-linkedin mr-2 cursor-pointer text-2xl hover:text-blue-600 transition-transform transform hover:scale-110 duration-300"></i>
+        <div
+          class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+          LinkedIn
+        </div>
+      </a>
+    </div>
 
-  <!-- GitHub -->
-  <div class="group relative">
-    <a href="https://github.com/benmed00" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      <i
-        class="bi bi-github cursor-pointer text-2xl hover:text-gray-800 transition-transform transform hover:scale-110 duration-300"></i>
-      <div
-        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
-        GitHub
-      </div>
-    </a>
-  </div>
+    <!-- GitHub -->
+    <div class="group relative">
+      <a href="https://github.com/benmed00" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i
+          class="bi bi-github cursor-pointer text-2xl hover:text-gray-800 transition-transform transform hover:scale-110 duration-300"></i>
+        <div
+          class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+          GitHub
+        </div>
+      </a>
+    </div>
 
-  <!-- Twitter -->
-  <div class="group relative">
-    <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-      <i
-        class="bi bi-twitter cursor-pointer text-2xl hover:text-blue-500 transition-transform transform hover:scale-110 duration-300"></i>
-      <div
-        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
-        Twitter
-      </div>
-    </a>
-  </div>
+    <!-- Twitter -->
+    <div class="group relative">
+      <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i
+          class="bi bi-twitter cursor-pointer text-2xl hover:text-blue-500 transition-transform transform hover:scale-110 duration-300"></i>
+        <div
+          class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+          Twitter
+        </div>
+      </a>
+    </div>
 
-  <!-- Instagram -->
-  <div class="group relative">
-    <a href="https://www.instagram.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <i
-        class="bi bi-instagram cursor-pointer text-2xl hover:text-pink-600 transition-transform transform hover:scale-110 duration-300"></i>
-      <div
-        class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
-        Instagram
-      </div>
-    </a>
+    <!-- Instagram -->
+    <div class="group relative">
+      <a href="https://www.instagram.com/your-username" target="_blank" rel="noopener noreferrer"
+        aria-label="Instagram">
+        <i
+          class="bi bi-instagram cursor-pointer text-2xl hover:text-pink-600 transition-transform transform hover:scale-110 duration-300"></i>
+        <div
+          class="absolute left-1/2 bottom-[-20px] translate-x-[-50%] scale-0 group-hover:scale-100 group-hover:bottom-[35px] text-white bg-black rounded-md px-2 py-1 text-sm transition-all duration-300 ease-in-out">
+          Instagram
+        </div>
+      </a>
+    </div>
   </div>
-</div>
 
 </nav>
-
-
-
-

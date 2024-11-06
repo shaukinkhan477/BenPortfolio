@@ -38,6 +38,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   constructor(private blogService: BlogService) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.blogService.getBlogs().subscribe((blogs) => {
       this.blogs = blogs;
       this.filteredBlogs = this.blogs;

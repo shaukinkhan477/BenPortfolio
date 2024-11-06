@@ -27,6 +27,7 @@ export class MyServicesComponent implements OnInit {
     private BenifitsOfMyServicesService: BenifitsOfMyServicesService) { }
 
   ngOnInit() {
+     window.scrollTo(0, 0);
     // Fetch the data from the service
     this.myServicesService.getServices().subscribe((data) => {
     this.services = data;
