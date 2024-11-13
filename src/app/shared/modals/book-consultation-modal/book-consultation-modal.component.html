@@ -44,7 +44,7 @@
 
         <!-- Date Selection -->
         <div class="mb-6">
-          <label for="date" class="block font-medium mb-2">Select a Date <span class="text-red-500">*</span></label>
+          <label for="date" class="block font-medium mb-2">Select a Date<span class="text-red-500">*</span></label>
           <input
             id="date"
             type="date"
@@ -56,7 +56,7 @@
 
         <!-- Time Slots -->
         <div *ngIf="selectedDate" class="mb-6">
-          <label class="block font-medium mb-2">Available Time Slots <span class="text-red-500">*</span></label>
+          <label class="block font-medium mb-2">Available Time Slots<span class="text-red-500">*</span></label>
           <div class="grid grid-cols-3 gap-2">
             <button
               *ngFor="let time of availableTimes"
@@ -75,7 +75,7 @@
         <!-- Time Zone Selection -->
         <div *ngIf="selectedTime" class="mb-6">
           <label for="timezone" class="block font-medium mb-2">
-            Select Your Time Zone <span class="text-red-500">*</span>
+            Select Your Time Zone<span class="text-red-500">*</span>
           </label>
           <select
             id="timezone"
@@ -116,17 +116,19 @@
 
         <!-- User Details Form -->
         <div class="mb-6">
-          <label for="name" class="block font-medium mb-2">Your Name <span class="text-red-500">*</span></label>
+          <label for="name" class="block font-medium mb-2">Name<span class="text-red-500">*</span></label>
           <input
             id="name"
+            placeholder="Your name"
             type="text"
             [(ngModel)]="name"
             class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          <label for="email" class="block font-medium mb-2">Your Email <span class="text-red-500">*</span></label>
+          <label for="email" class="block font-medium mb-2">Email<span class="text-red-500">*</span></label>
           <input
             id="email"
+            placeholder="Your email"
             type="email"
             [(ngModel)]="email"
             class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -146,6 +148,7 @@
           </label>
           <textarea
             id="message"
+            placeholder="Your message for me...."
             [(ngModel)]="message"
             rows="4"
             class="w-full bg-neutral-700 border border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"

@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ModalService } from '../../services/modal.service';
+import emailjs from 'emailjs-com';
+
 
 @Component({
   selector: 'app-book-consultation-modal',
@@ -85,14 +87,39 @@ export class BookConsultationModalComponent implements OnInit {
   }
 
   // Method to schedule the event (final confirmation)
-  scheduleEvent() {
-    // Implement booking logic here (e.g., send data to server)
-    alert(
-      `Consultation scheduled on ${this.selectedDate} at ${this.selectedTime} (${this.selectedTimeZone})\n` +
-      `Name: ${this.name}\nEmail: ${this.email}\nGuests: ${this.guestEmails}\nMessage: ${this.message}`
-    );
-    this.closeModal();
-  }
+scheduleEvent() {
+  const bookingDetails = {
+    selectedDate: this.selectedDate,
+    selectedTime: this.selectedTime,
+    selectedTimeZone: this.selectedTimeZone,
+    name: this.name,
+    email: this.email,
+    guestEmails: this.guestEmails,
+    message: this.message,
+  };
+
+  const templateParams = {
+    // Map your bookingDetails to the template parameters
+    to_name: bookingDetails.name,
+    to_email: bookingDetails.email,
+    guest_emails: bookingDetails.guestEmails,
+    date: bookingDetails.selectedDate,
+    time: bookingDetails.selectedTime,
+    time_zone: bookingDetails.selectedTimeZone,
+    message: bookingDetails.message,
+  };
+
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+      alert('Consultation scheduled successfully. Confirmation emails have been sent.');
+      this.closeModal();
+    }, (error) => {
+      console.error('Failed to send email:', error);
+      alert('An error occurred while scheduling the consultation. Please try again.');
+    });
+}
+
 
   closeModal() {
     this.modalService.closeBookConsultationModal();

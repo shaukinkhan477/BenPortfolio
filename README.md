@@ -18,9 +18,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ![Hero Sction](<src/assets/newFeaturesScreenshot/Hero Component.png>)
 
-![Technologies](<src/assets/newFeaturesScreenshot/Technologies Component.png>)
-
 ![About](<src/assets/newFeaturesScreenshot/About Component.png>)
+
+![Technologies](<src/assets/newFeaturesScreenshot/Technologies Component.png>)
 
 ![Experience](<src/assets/newFeaturesScreenshot/Experience Project Component.png>)
 

@@ -1,11 +1,12 @@
 import { ModalService } from '../../shared/services/modal.service';
-import { Component, HostListener, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID, OnInit, AfterViewInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router,} from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { BlogComponent } from "../blog/blog.component";
 import { BookConsultationModalComponent } from "../../shared/modals/book-consultation-modal/book-consultation-modal.component";
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { BookConsultationModalComponent } from "../../shared/modals/book-consult
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   isHomePage: boolean = false;
   currentRoute: string = '';
@@ -34,6 +35,25 @@ export class HeaderComponent implements OnInit {
         this.checkCurrentRoute();
       }
     });
+  }
+
+  ngAfterViewInit() {
+
+    var tl = gsap.timeline()
+
+    tl.from("#logo", {
+      y: -20,
+      opacity: 0,
+      duration: 1,
+      delay:0.4
+    })
+
+    tl.from(".headerButton", {
+      y: -20,
+      opacity: 0,
+      duration: 1,
+      stagger:0.3,
+    })
   }
 
 

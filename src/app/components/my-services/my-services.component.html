@@ -1,11 +1,10 @@
 <div class="container mx-auto px-6 lg:px-16 py-12">
-
   <div class="text-center mb-12">
-    <app-typing-effect  class="tagline"></app-typing-effect>
+    <app-typing-effect class=" serviceCards tagline"></app-typing-effect>
   </div>
 
   <!-- Header Section with Button -->
-  <div class="flex items-center justify-between mb-12">
+  <div class=" serviceCards flex items-center justify-between mb-12">
     <!-- Services Heading -->
     <h1
       class="services text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
@@ -16,7 +15,7 @@
     <!-- "Request a Service" Button -->
     <button
       (click)="openGetInTouchModal()"
-      class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300"
+      class="request-service-button sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300 active:scale-95"
     >
       Request a Service
     </button>
@@ -25,19 +24,18 @@
   <!-- Services Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <div
-      *ngFor="let service of services"
-      class="service-card bg-gray-800 rounded-lg p-6 text-white transform transition duration-500 hover:scale-105"
-      data-aos="flip-left"
+      *ngFor="let service of services; let i = index"
+      class="service-card bg-gray-800 rounded-lg p-6 text-white transform transition-transform duration-500 hover:scale-105 hover:shadow-lg"
     >
       <div class="flex items-center mb-4">
-        <i [class]="service.icon + ' text-4xl text-cyan-600 mr-4'"></i>
+        <i [class]="service.icon + ' service-icon text-4xl text-cyan-600 mr-4 transition-transform duration-300'"></i>
         <h2 class="text-2xl font-bold">{{ service.title }}</h2>
       </div>
       <p class="text-gray-300">{{ service.description }}</p>
     </div>
   </div>
 
-    <!-- "Why Work With Me?" Section -->
+  <!-- "Why Work With Me?" Section -->
   <div class="mt-16">
     <h2
       class="services whyWork text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
@@ -47,9 +45,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Benefit Cards -->
       <div
-        *ngFor="let benefit of benefits"
-        class="benefit-card mt-5 bg-gray-800 rounded-lg p-6 text-white transform transition duration-500 hover:scale-105"
-        data-aos="fade-up"
+        *ngFor="let benefit of benefits; let i = index"
+        class="benefit-card mt-5 bg-gray-800 rounded-lg p-6 text-white transform transition-transform duration-500 hover:scale-105 hover:shadow-lg"
       >
         <div class="flex items-center mb-4">
           <i [class]="benefit.icon + ' text-4xl text-green-500 mr-4'"></i>
@@ -59,10 +56,8 @@
       </div>
     </div>
   </div>
-
 </div>
 
-
 <!-- Favorite Tech Stack Section -->
-<h1 class="technologies techtext-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">My Favorite Tech Stack</h1>
-<app-technologies></app-technologies>
+<h1 class="technologies text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight mt-12">My Favorite Tech Stack</h1>
+<app-technologies class="benefit-card"></app-technologies>
