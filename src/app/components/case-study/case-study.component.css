@@ -1,0 +1,35 @@
+.container {
+  max-width: 1200px;
+}
+
+.services {
+  margin-left: 450px;
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.technologies {
+  margin-left: 520px;
+  font-size: 40px;
+}
+
+.whyWork {
+  margin-left: 360px;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}

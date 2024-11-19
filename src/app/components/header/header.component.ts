@@ -11,7 +11,7 @@ import { gsap } from 'gsap';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, BlogComponent, RouterLink, BookConsultationModalComponent],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -114,6 +114,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   whyMe() {
     this.router.navigate(['/why-me'])
+  }
+
+  navigateToCaseStudy() {
+    this.router.navigate(['/case-study']);
   }
 
 }

@@ -1,0 +1,29 @@
+/* blog-detail.component.css */
+
+/* Gradient background and basic styles for the button */
+.gradient-button {
+  background: linear-gradient(to right, #f0f4c3, #b2ebf2); /* Light gradient colors */
+  color: #333; /* Text color */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.2s ease; /* Smooth transition */
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hover effect */
+.gradient-button:hover {
+  background: linear-gradient(to right, #b2ebf2, #f0f4c3); /* Reverse gradient colors */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Icon and text alignment */
+.gradient-button .mat-icon {
+  vertical-align: middle;
+}
+
+.gradient-button span {
+  vertical-align: middle;
+}

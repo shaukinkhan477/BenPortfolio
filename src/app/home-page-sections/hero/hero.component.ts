@@ -48,7 +48,7 @@ export class HeroComponent implements AfterViewInit {
       scrollTrigger: {
         trigger: ".heroHighLights",
         scroller: "body",
-        markers: true,
+        // markers: true, 
         start: 'top 80%',
         end: "top 40%",
         scrub:2,

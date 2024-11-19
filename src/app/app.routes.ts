@@ -13,6 +13,8 @@ import { TechnologiesComponent } from './home-page-sections/technologies/technol
 import { TestimonialComponent } from './home-page-sections/testimonial/testimonial.component';
 import { MyServicesComponent } from './components/my-services/my-services.component';
 import { WhyMeComponent } from './components/why-me/why-me.component';
+import { CaseStudyComponent } from './components/case-study/case-study.component';
+import { CaseStudyDetailComponent } from './components/case-study-detail/case-study-detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,7 +30,13 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'my-services', component: MyServicesComponent},
-  { path: 'why-me', component: WhyMeComponent},
+  { path: 'why-me', component: WhyMeComponent },
+  // { path: 'case-study', component: CaseStudyComponent },
+  {
+    path: 'case-study',
+    loadComponent: () => import('./components/case-study/case-study.component').then(m => m.CaseStudyComponent)
+  },
+  { path: 'case-study/:id', component: CaseStudyDetailComponent },
 ];
 
 @NgModule({

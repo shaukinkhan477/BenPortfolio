@@ -14,10 +14,10 @@ export class FooterComponent {
   footerLogo = '/assets/images/logo/benLogo2.png'
 
   constructor(public modalService: ModalService, private router: Router) { }
-  
+
    // Open the "Get in Touch" modal
   openGetInTouchModal() {
-    this.modalService.openModal();  // Call the service to show the modal
+    this.modalService.openModal();
   }
 
 }
