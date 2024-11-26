@@ -1,16 +1,17 @@
+<div *ngIf="showHeaderFooter()">
+  <app-header></app-header>
+</div>
 
-    <div *ngIf="showHeaderFooter()">
-      <app-header></app-header>
-    </div>
+<app-book-consultation-modal></app-book-consultation-modal>
 
-    <app-book-consultation-modal></app-book-consultation-modal>
+<app-contact-modal></app-contact-modal>
 
-    <app-contact-modal></app-contact-modal>
-    
-    <router-outlet></router-outlet>
-
-    <div *ngIf="showHeaderFooter()">
-      <app-footer></app-footer>
-    </div>
+<div [@routeAnimations]="prepareRoute(outlet)" (@routeAnimations.done)="onRouteAnimationDone($event)"
+  style="position: relative;">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
 
 
+<div *ngIf="showHeaderFooter()">
+  <app-footer></app-footer>
+</div>

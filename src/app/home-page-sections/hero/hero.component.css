@@ -1,3 +1,14 @@
+.heroImage {
+  position: relative;
+  overflow: hidden; /* Optional: hides overflow if needed */
+}
+
+.heroImage img {
+  transform-style: preserve-3d; /* Enables 3D transformations */
+  will-change: transform; /* Improves performance */
+}
+
+
 .heroHighLights {
   margin-right: 20px;
   /* Gradient border */

@@ -13,11 +13,7 @@
 
   <div class="px-1 py-1 flex items-center">
 
-    <!-- "About Me" button (conditionally displayed) -->
-    <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()" [ngClass]="{ 'active': isActive('/home') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800">
-      About
-    </button>
+
 
 
     <!-- "Get in Touch" button -->
@@ -25,6 +21,12 @@
       class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
       <!-- class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300" -->
       Get in Touch
+    </button>
+
+    <!-- "About Me" button (conditionally displayed) -->
+    <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()" [ngClass]="{ 'active': isActive('/home') }"
+      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800">
+      About
     </button>
 
 
@@ -49,11 +51,11 @@
     </button>
 
     <!-- "Case Study" button -->
-  <button id="case-study-btn" (click)="navigateToCaseStudy()" [ngClass]="{ 'active': isActive('/case-study') }"
-    class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
-    Case Study
-  </button>
-  
+    <button id="case-study-btn" (click)="navigateToCaseStudy()" [ngClass]="{ 'active': isActive('/case-study') }"
+      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      Case Study
+    </button>
+
   </div>
 
   <!-- Social Media Icons -->

@@ -15,11 +15,9 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    FooterComponent,
-    HeaderComponent,
     FormsModule,
     MatIconModule,
-    RouterLink, // Ensure RouterLink is imported
+    RouterLink,
   ],
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.css'],

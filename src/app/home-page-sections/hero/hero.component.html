@@ -15,9 +15,9 @@
         </div>
       </div>
     </div>
-    <div class="heroImage w-full lg:w-1/2 lg:p-8">
+    <div class="heroImage w-full lg:w-1/2 lg:p-8" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
       <div class="hero flex justify-center">
-        <img [src]= MyheroSectionImage alt="BenImage">
+        <img [src]= MyheroSectionImage alt="BenImage" #heroImage>
       </div>
     </div>
   </div>

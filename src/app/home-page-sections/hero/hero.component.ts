@@ -1,37 +1,39 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 
 @Component({
   selector: 'app-hero',
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css'
+  styleUrls: ['./hero.component.css'] // Corrected property name
 })
 export class HeroComponent implements AfterViewInit {
+  @ViewChild('heroImage', { static: true }) heroImage!: ElementRef;
 
-  MyheroSectionImage = '/assets/images/myImages/kevinRushProfile.png'
-  benResume = '/assets/files/BenResume.pdf'
-  name = "Benyakoub M."
-  profession = "Senior Web FrontEnd Consultant (Angular)"
-  heroContent = "As a Senior Angular Consultant, I bring a wealth of experience in building dynamic, responsive, and scalable web applications using Angular and its modern ecosystem. Over the years, I have honed my expertise in developing front-end solutions that prioritize performance, maintainability, and user experience. I specialize in architecting complex, enterprise-level applications while following best practices in component design, state management, and TypeScript. With a strong understanding of Angular's inner workings, I am adept at solving intricate technical challenges, optimizing code, and mentoring development teams.";
+
+  MyheroSectionImage = '/assets/images/myImages/kevinRushProfile.png';
+  benResume = '/assets/files/BenResume.pdf';
+  name = 'Benyakoub M.';
+  profession = 'Senior Web FrontEnd Consultant (Angular)';
+  heroContent = 'As a Senior Angular Consultant, I bring a wealth of experience in building dynamic, responsive, and scalable web applications using Angular and its modern ecosystem. Over the years, I have honed my expertise in developing front-end solutions that prioritize performance, maintainability, and user experience. I specialize in architecting complex, enterprise-level applications while following best practices in component design, state management, and TypeScript. With a strong understanding of Angular\'s inner workings, I am adept at solving intricate technical challenges, optimizing code, and mentoring development teams.';
 
   ngAfterViewInit() {
-
     gsap.registerPlugin(ScrollTrigger);
 
-    var tl = gsap.timeline()
+    // Use setTimeout to ensure the DOM is fully rendered before initializing animations
+    setTimeout(() => {
+      const tl = gsap.timeline();
 
-    tl.from(".heroContent", {
-      y: -20,
-      opacity: 0,
-      duration: 2.5,
-      delay: 0.4,
-      x: -500,
-      stagger:1
-    })
+      tl.from('.heroContent', {
+        y: -20,
+        opacity: 0,
+        duration: 2.5,
+        delay: 0.4,
+        x: -500,
+        stagger: 1
+      });
 
       gsap.from('.heroImage', {
         y: -20,
@@ -100,4 +102,34 @@ export class HeroComponent implements AfterViewInit {
       ease: 'power3.out',
     });
   }
+
+//   onMouseMove(event: MouseEvent) {
+//   const image = this.heroImage.nativeElement;
+//   const rect = image.getBoundingClientRect();
+//   const xPos = event.clientX - rect.left - rect.width / 2;
+//   const yPos = event.clientY - rect.top - rect.height / 2;
+//   const maxTranslate = 20; // Maximum pixels to move
+
+//   const xTranslate = (xPos / rect.width) * maxTranslate;
+//   const yTranslate = (yPos / rect.height) * maxTranslate;
+
+//   gsap.to(image, {
+//     x: xTranslate,
+//     y: yTranslate,
+//     duration: 0.3,
+//     ease: 'power3.out',
+//   });
+// }
+
+// onMouseLeave() {
+//   const image = this.heroImage.nativeElement;
+
+//   gsap.to(image, {
+//     x: 0,
+//     y: 0,
+//     duration: 0.5,
+//     ease: 'power3.out',
+//   });
+// }
+
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { TechnologiesComponent } from "../../home-page-sections/technologies/technologies.component";
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/shared/services/modal.service';
@@ -23,31 +23,48 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
   services: MyServices[] = [];
   benefits: Benefit[] = [];
 
-
   constructor(
     public modalService: ModalService,
     private router: Router,
     private myServicesService: MyServicesService,
-    private BenifitsOfMyServicesService: BenifitsOfMyServicesService
+    private BenifitsOfMyServicesService: BenifitsOfMyServicesService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
 
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
     // Fetch the data from the service
     this.myServicesService.getServices().subscribe((data) => {
       this.services = data;
+      this.checkDataLoaded();
     });
 
     this.BenifitsOfMyServicesService.getBenefits().subscribe((data) => {
       this.benefits = data;
+      this.checkDataLoaded();
     });
-
-    // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger);
   }
 
   ngAfterViewInit() {
+    // Do not initialize GSAP animations here
+  }
+
+  private checkDataLoaded() {
+    if (this.services.length > 0 && this.benefits.length > 0) {
+      // Both data sets are loaded
+      // Wait for the view to update
+      this.cdr.detectChanges(); // Ensure view updates
+      setTimeout(() => {
+        this.initGSAPAnimations();
+      }, 0);
+    }
+  }
+
+  private initGSAPAnimations() {
     // Animate the header
     gsap.from('.serviceCards', {
       duration: 3,
@@ -57,16 +74,16 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
     });
 
     // Animate the "Request a Service" button
-  gsap.from('.request-service-button', {
-    duration: 1,
-    x: 50,
-    opacity: 0,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.request-service-button',
-      start: 'top 80%',
-    },
-  });
+    gsap.from('.request-service-button', {
+      duration: 1,
+      x: 50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.request-service-button',
+        start: 'top 80%',
+      },
+    });
 
     // Animate each service card on scroll
     gsap.utils.toArray('.service-card').forEach((card: any, index: number) => {
@@ -97,6 +114,9 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
         delay: index * 0.1,
       });
     });
+
+    // Refresh ScrollTrigger after initializing animations
+    ScrollTrigger.refresh();
   }
 
   // Open the "Get in Touch" modal

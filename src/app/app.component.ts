@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { GoogleTagManagerService } from './shared/services/google-tag-manager.service';
 import { Router, RouterOutlet } from '@angular/router';
@@ -8,19 +8,38 @@ import { CommonModule } from '@angular/common';
 import { ContactModalComponent } from "./shared/modals/contact-modal/contact-modal.component";
 import { MyServicesComponent } from "./components/my-services/my-services.component";
 import { BookConsultationModalComponent } from "./shared/modals/book-consultation-modal/book-consultation-modal.component";
+import { routeAnimations } from './route-animations';
+import { AnimationEvent as AngularAnimationEvent } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, MyServicesComponent, BookConsultationModalComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  animations: [routeAnimations],
 })
 
 export class AppComponent implements OnInit {
   title = 'Ben Portfolio';
 
+    @Output() routeAnimationDone = new EventEmitter<void>();
+
   constructor(private gtmService: GoogleTagManagerService, private router: Router) { }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+//   prepareRoute(outlet: RouterOutlet) {
+//   return outlet && outlet.activatedRouteData ? outlet.activatedRouteData['animation'] || outlet.activatedRoute.snapshot.url.join('/') : '';
+// }
+
+     onRouteAnimationDone(event: AngularAnimationEvent) {
+    // console.log('Animation done:', event);
+    // Handle the animation completion event
+  }
+
 
   ngOnInit(): void {
     this.gtmService.loadGTM();
