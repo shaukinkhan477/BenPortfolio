@@ -1,12 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
 import { GoogleTagManagerService } from './shared/services/google-tag-manager.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CommonModule } from '@angular/common';
 import { ContactModalComponent } from "./shared/modals/contact-modal/contact-modal.component";
-import { MyServicesComponent } from "./components/my-services/my-services.component";
 import { BookConsultationModalComponent } from "./shared/modals/book-consultation-modal/book-consultation-modal.component";
 import { routeAnimations } from './route-animations';
 import { AnimationEvent as AngularAnimationEvent } from '@angular/animations';
@@ -14,7 +12,7 @@ import { AnimationEvent as AngularAnimationEvent } from '@angular/animations';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, MyServicesComponent, BookConsultationModalComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, BookConsultationModalComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [routeAnimations],

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { Benefit } from 'src/app/shared/models/benefit.model';
 import { MyServices } from 'src/app/shared/models/myServices.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
@@ -24,7 +23,6 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
 
   constructor(
     public modalService: ModalService,
-    private router: Router,
     private myServicesService: MyServicesService,
     private BenifitsOfMyServicesService: BenifitsOfMyServicesService,
     private cdr: ChangeDetectorRef

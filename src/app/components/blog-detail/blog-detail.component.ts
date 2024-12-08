@@ -3,8 +3,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Blog } from 'src/app/shared/models/blog.model';
 import { BlogService } from 'src/app/shared/services/blog.service';
-import { FooterComponent } from '../footer/footer.component';
-import { HeaderComponent } from '../header/header.component';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,7 +31,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService,
-    private modalService: ModalService,
     private router: Router
   ) {}
 

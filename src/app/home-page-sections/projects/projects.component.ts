@@ -1,5 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+// import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
 
 @Component({
   selector: 'app-projects',
@@ -8,7 +22,9 @@ import { Component } from '@angular/core';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, AfterViewInit {
+
+    @ViewChildren('projectCard') projectCards!: QueryList<ElementRef>;
 
   project1 = 'assets/images/projectImages/benProject-1.jpeg';
   project2 = 'assets/images/projectImages/benProject-2.jpeg';
@@ -66,4 +82,34 @@ export class ProjectsComponent {
     },
   ];
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initAnimations();
+    }
+  }
+
+  private initAnimations(): void {
+    // Grab all the DOM elements of the project cards
+    const cards = this.projectCards.map((card) => card.nativeElement);
+
+    gsap.from(cards, {
+      opacity: 0,
+      y: 50,
+      duration: 4,
+      stagger: 0.3,
+      ease: 'elastic.out(1, 0.3)',
+      scrollTrigger: {
+        trigger: '.projects-section', // We'll add a class in template
+        start: 'top 80%', // start the animation when section top hits 80% of viewport
+      },
+    });
+  }
 }

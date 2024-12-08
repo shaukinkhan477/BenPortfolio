@@ -1,6 +1,6 @@
-<div class="border-b border-neutral-900">
+<div class="border-b border-neutral-900 projects-section">
   <h1 class="my-20 text-center text-4xl">Projects / Experiences</h1>
-  <div *ngFor="let project of projects">
+  <div *ngFor="let project of projects" #projectCard>
     <div class="mb-8 flex flex-wrap lg:justify-center">
       <div class="w-full lg:w-1/4">
       <img [src]="project.image" alt="{{ project.title }} " width="150" height="150" class="mb-6 rounded">

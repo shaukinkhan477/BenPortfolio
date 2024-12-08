@@ -1,11 +1,9 @@
 import { ModalService } from '../../shared/services/modal.service';
-import { Component, HostListener, Inject, PLATFORM_ID, OnInit, AfterViewInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router,} from '@angular/router';
 import { RouterLink } from '@angular/router';
-import { BlogComponent } from "../blog/blog.component";
-import { BookConsultationModalComponent } from "../../shared/modals/book-consultation-modal/book-consultation-modal.component";
 import { gsap } from 'gsap';
 
 @Component({

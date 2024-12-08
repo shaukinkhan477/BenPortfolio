@@ -1,4 +1,4 @@
-.heroImage {
+.hero-container {
   position: relative;
   overflow: hidden; /* Optional: hides overflow if needed */
 }

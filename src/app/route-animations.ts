@@ -1,5 +1,7 @@
 import { trigger, transition, style, query, group, animate } from '@angular/animations';
 
+
+// Basic Animation
 // export const routeAnimations = trigger('routeAnimations', [
 //   transition('* <=> *', [
 //     query(
@@ -45,7 +47,6 @@ import { trigger, transition, style, query, group, animate } from '@angular/anim
 //     ]),
 //   ]),
 // ]);
-
 
 
 // Flip Animation
@@ -147,7 +148,6 @@ export const routeAnimations = trigger('routeAnimations', [
 // ]);
 
 // Slide Up/Down Transition
-
 // export const routeAnimations = trigger('routeAnimations', [
 //   transition('* <=> *', [
 //     query(
@@ -196,7 +196,6 @@ export const routeAnimations = trigger('routeAnimations', [
 
 
 // Fade Through Transition
-
 // export const routeAnimations = trigger('routeAnimations', [
 //   transition('* <=> *', [
 //     query(':enter', [style({ opacity: 0 })], { optional: true }),
@@ -219,4 +218,52 @@ export const routeAnimations = trigger('routeAnimations', [
 //     ]),
 //   ]),
 // ]);
+
+// Rotate Transition
+// export const routeAnimations = trigger('routeAnimations', [
+//   transition('* <=> *', [
+//     query(
+//       ':enter, :leave',
+//       style({
+//         position: 'fixed',
+//         width: '100%',
+//         height: '100%',
+//       }),
+//       { optional: true }
+//     ),
+//     group([
+//       query(
+//         ':leave',
+//         [
+//           animate(
+//             '600ms ease-in-out',
+//             style({
+//               opacity: 0,
+//               transform: 'rotate(-180deg) scale(0.5)',
+//             })
+//           ),
+//         ],
+//         { optional: true }
+//       ),
+//       query(
+//         ':enter',
+//         [
+//           style({
+//             opacity: 0,
+//             transform: 'rotate(180deg) scale(0.5)',
+//           }),
+//           animate(
+//             '600ms ease-in-out',
+//             style({
+//               opacity: 1,
+//               transform: 'rotate(0deg) scale(1)',
+//             })
+//           ),
+//         ],
+//         { optional: true }
+//       ),
+//     ]),
+//   ]),
+// ]);
+
 

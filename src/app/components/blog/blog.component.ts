@@ -1,11 +1,7 @@
-// src/app/components/blog/blog.component.ts
-
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
 import { BlogService } from 'src/app/shared/services/blog.service';
 import { Blog } from 'src/app/shared/models/blog.model';
 import { Subject, Subscription } from 'rxjs';
@@ -16,8 +12,6 @@ import { debounceTime } from 'rxjs/operators';
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
-    FooterComponent,
     RouterLink,
     FormsModule,
   ],

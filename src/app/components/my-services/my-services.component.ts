@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { TechnologiesComponent } from "../../home-page-sections/technologies/technologies.component";
-import { Router } from '@angular/router';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { TypingEffectComponent } from '../typing-effect/typing-effect.component';
 import { Benefit } from 'src/app/shared/models/benefit.model';
@@ -25,7 +24,6 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
 
   constructor(
     public modalService: ModalService,
-    private router: Router,
     private myServicesService: MyServicesService,
     private BenifitsOfMyServicesService: BenifitsOfMyServicesService,
     private cdr: ChangeDetectorRef

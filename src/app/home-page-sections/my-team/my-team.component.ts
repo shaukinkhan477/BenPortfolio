@@ -1,5 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-my-team',
@@ -8,8 +19,9 @@ import { Component } from '@angular/core';
   templateUrl: './my-team.component.html',
   styleUrl: './my-team.component.css'
 })
-export class MyTeamComponent {
+export class MyTeamComponent implements OnInit, AfterViewInit {
 
+  @ViewChildren('teamMember') teamMemberEls!: QueryList<ElementRef>;
 
   aboutUs = 'We handcraft unique design & digital experiences to meet your commitments.';
 
@@ -43,5 +55,35 @@ export class MyTeamComponent {
       link: '#'
     }
   ];
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initAnimations();
+    }
+  }
+
+  private initAnimations(): void {
+    const members = this.teamMemberEls.map(el => el.nativeElement);
+
+    gsap.from(members, {
+     opacity: 0,
+      y: 50,
+      duration: 4,
+      stagger: 0.3,
+      ease: 'elastic.out(1, 0.3)',
+      scrollTrigger: {
+        trigger: '.team-section',
+        start: 'top 80%'
+      }
+    });
+  }
 
 }
