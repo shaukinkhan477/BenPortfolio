@@ -1,0 +1,38 @@
+.products-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.product-summary-container {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-summary {
+  font-size: 1.25rem;
+  color: #F0F0F0;  /* Light grey color for better contrast */
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}

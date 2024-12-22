@@ -10,4 +10,16 @@ button.active {
   border-bottom: 2px solid #38bdf8; /* Bottom border to indicate active state */
 }
 
+.blinking-dot {
+  animation: blink 1s infinite;
+  display: inline-block;
+  /* margin-left: 4px; */
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 

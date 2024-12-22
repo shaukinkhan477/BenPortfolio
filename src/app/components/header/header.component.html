@@ -3,13 +3,19 @@
     <a routerLink="/home"><img class="mx-2 w-16" src="/assets/images/logo/benLogo2.png" alt="Logo"></a>
   </div>
 
-  <div class="flex items-center">
-    <!-- "Book Consultation" Button -->
-    <button id="book-consultation-btn" (click)="openBookConsultationModal()"
-      class="headerButton px-4 py-2 sm:block font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90">
+<div class="flex items-center">
+  <!-- "Book Consultation" Button -->
+  <button id="book-consultation-btn" (click)="openBookConsultationModal()"
+    class="headerButton px-2 py-2 sm:block font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90">
+    <ng-container *ngIf="!showAlternateText; else altText">
       Book Consultation
-    </button>
-  </div>
+    </ng-container>
+    <ng-template #altText>
+     <span class="blinking-dot text-green-600">•</span> Available for Hire
+    </ng-template>
+  </button>
+</div>
+
 
   <div class="px-1 py-1 flex items-center">
 
@@ -18,14 +24,14 @@
 
     <!-- "Get in Touch" button -->
     <button id="get-in-touch-btn" (click)="openGetInTouchModal()"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       <!-- class="sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300" -->
       Get in Touch
     </button>
 
     <!-- "About Me" button (conditionally displayed) -->
     <button *ngIf="!isHomePage" id="about-me-btn" (click)="navigateToHome()" [ngClass]="{ 'active': isActive('/home') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       About
     </button>
 
@@ -33,28 +39,34 @@
 
     <!-- "Services" button -->
     <button id="service-btn" (click)="navigateToMyService()" [ngClass]="{ 'active': isActive('/my-services') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       Services
     </button>
 
 
     <!-- "Blogs" button -->
     <button id="blogs-btn" (click)="navigateToBlog()" [ngClass]="{ 'active': isActive('/blog') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       Blogs
     </button>
 
     <!-- "Why Me?" button -->
     <button id="blogs-btn" (click)="whyMe()" [ngClass]="{ 'active': isActive('/why-me') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       Why Me?
     </button>
 
     <!-- "Case Study" button -->
     <button id="case-study-btn" (click)="navigateToCaseStudy()" [ngClass]="{ 'active': isActive('/case-study') }"
-      class="headerButton px-4 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-4">
+      class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
       Case Study
     </button>
+
+    <!-- "Our Products" button -->
+  <button id="products-btn" (click)="navigateToProducts()" [ngClass]="{ 'active': isActive('/products') }"
+    class="headerButton px-2 py-2 text-white font-semibold rounded-md hover:bg-neutral-800 ml-2">
+    Our Products
+  </button>
 
   </div>
 

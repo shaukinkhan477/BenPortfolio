@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -9,9 +10,9 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit,  AfterViewInit {
 
   contact = {
     address: 'Nantes, Pays de la Loire, France',
@@ -27,23 +28,35 @@ export class ContactComponent implements OnInit {
   lat = 47.2184; // Latitude of your location
   zoom = 12; // Initial zoom level
 
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
   ngOnInit(): void {
-  // Initialize Mapbox map
-  this.map = new mapboxgl.Map({
-    accessToken: environment.mapboxAccessToken,
-    container: 'map', // The ID of the div element in which the map will be rendered
-    style: this.style,
-    center: [this.lng, this.lat],
-    zoom: this.zoom,
-  });
+    if (this.isBrowser) {
+      // Initialize Mapbox map
+      this.map = new mapboxgl.Map({
+        accessToken: environment.mapboxAccessToken,
+        container: 'map', // The ID of the div element in which the map will be rendered
+        style: this.style,
+        center: [this.lng, this.lat],
+        zoom: this.zoom,
+      });
 
-  // Add map controls (zoom, rotate)
-  this.map.addControl(new mapboxgl.NavigationControl());
+      // Add map controls (zoom, rotate)
+      this.map.addControl(new mapboxgl.NavigationControl());
 
-  // Add a marker at your location
-  const marker = new mapboxgl.Marker()
-    .setLngLat([this.lng, this.lat])
-    .addTo(this.map);
-}
+      // Add a marker at your location
+      const marker = new mapboxgl.Marker()
+        .setLngLat([this.lng, this.lat])
+        .addTo(this.map);
+    }
+  }
+
+  ngAfterViewInit() { }
+
+
 
 }

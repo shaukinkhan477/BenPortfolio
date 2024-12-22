@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Inject, PLATFORM_ID  } from '@angular/core';
 import { GoogleTagManagerService } from './shared/services/google-tag-manager.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
@@ -8,6 +8,7 @@ import { ContactModalComponent } from "./shared/modals/contact-modal/contact-mod
 import { BookConsultationModalComponent } from "./shared/modals/book-consultation-modal/book-consultation-modal.component";
 import { routeAnimations } from './route-animations';
 import { AnimationEvent as AngularAnimationEvent } from '@angular/animations';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,11 @@ export class AppComponent implements OnInit {
 
     @Output() routeAnimationDone = new EventEmitter<void>();
 
-  constructor(private gtmService: GoogleTagManagerService, private router: Router) { }
+  constructor(
+    private gtmService: GoogleTagManagerService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
@@ -40,7 +45,10 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.gtmService.loadGTM();
+     if (isPlatformBrowser(this.platformId)) {
+      // Run only in the browser
+      this.gtmService.loadGTM();
+    }
   }
 
   showHeaderFooter(): boolean {

@@ -1,0 +1,33 @@
+<div class="products-page-container px-6 py-12">
+  <div>
+<h1 class=" product text-center techtext-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">Our Products</h1>
+</div>
+<div class="product-summary-container">
+  <p class="product-summary animate-fadeIn">
+    Explore our range of software, web apps, and mobile solutions designed to streamline your workflow and accelerate your growth.
+  </p>
+</div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div *ngFor="let product of products" class="product-card bg-gray-800 rounded-lg p-6 text-white flex flex-col">
+      <img [src]="product.imageUrl" [alt]="product.name" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-xl font-bold mb-2">{{ product.name }}</h2>
+      <p class="text-gray-300 mb-4">{{ product.description }}</p>
+      <div class="mt-auto flex items-center justify-between">
+        <span class="text-lg font-semibold">${{ product.price.toFixed(2) }}</span>
+        <div class="flex space-x-2">
+          <a *ngIf="product.demoUrl"
+             [href]="product.demoUrl" target="_blank"
+             class="px-3 py-1 bg-gray-700 rounded font-medium text-sm hover:bg-gray-600 transition">
+            Demo
+          </a>
+          <a *ngIf="product.purchaseUrl"
+             [href]="product.purchaseUrl" target="_blank"
+             class="px-3 py-1 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-semibold rounded-md hover:opacity-90 transition duration-300 active:scale-95">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,14 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css'] // Corrected property name
+  styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements AfterViewInit {
   @ViewChild('heroImage', { static: true }) heroImage!: ElementRef;
@@ -19,48 +20,59 @@ export class HeroComponent implements AfterViewInit {
   profession = 'Senior Web FrontEnd Consultant (Angular)';
   heroContent = 'As a Senior Angular Consultant, I bring a wealth of experience in building dynamic, responsive, and scalable web applications using Angular and its modern ecosystem. Over the years, I have honed my expertise in developing front-end solutions that prioritize performance, maintainability, and user experience. I specialize in architecting complex, enterprise-level applications while following best practices in component design, state management, and TypeScript. With a strong understanding of Angular\'s inner workings, I am adept at solving intricate technical challenges, optimizing code, and mentoring development teams.';
 
+
+private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+
   ngAfterViewInit() {
-    gsap.registerPlugin(ScrollTrigger);
+    if (this.isBrowser) {
 
-    // Use setTimeout to ensure the DOM is fully rendered before initializing animations
-    setTimeout(() => {
-      const tl = gsap.timeline();
+      gsap.registerPlugin(ScrollTrigger);
 
-      tl.from('.heroContent', {
-        y: -20,
-        opacity: 0,
-        duration: 2.5,
-        delay: 0.4,
-        x: -500,
-        stagger: 1
-      });
+      // Use setTimeout to ensure the DOM is fully rendered before initializing animations
+      setTimeout(() => {
+        const tl = gsap.timeline();
 
-      gsap.from('.heroImage', {
-        y: -20,
-        opacity: 0,
-        duration: 2.5,
-        delay: 0.4,
-        scale: 0.2
-      });
+        tl.from('.heroContent', {
+          y: -20,
+          opacity: 0,
+          duration: 2.5,
+          delay: 0.4,
+          x: -500,
+          stagger: 1
+        });
 
-      gsap.from('.heroHighLights', {
-        y: -20,
-        opacity: 0,
-        duration: 2.5,
-        scale: 0.2,
-        scrollTrigger: {
-          trigger: '.heroHighLights',
-          scroller: 'body',
-          // markers: true,
-          start: 'top 80%',
-          end: 'top 40%',
-          scrub: 2
-        }
-      });
+        gsap.from('.heroImage', {
+          y: -20,
+          opacity: 0,
+          duration: 2.5,
+          delay: 0.4,
+          scale: 0.2
+        });
 
-      // Refresh ScrollTrigger after initializing animations
-      ScrollTrigger.refresh();
-    }, 0);
+        gsap.from('.heroHighLights', {
+          y: -20,
+          opacity: 0,
+          duration: 2.5,
+          scale: 0.2,
+          scrollTrigger: {
+            trigger: '.heroHighLights',
+            scroller: 'body',
+            // markers: true,
+            start: 'top 80%',
+            end: 'top 40%',
+            scrub: 2
+          }
+        });
+
+        // Refresh ScrollTrigger after initializing animations
+        ScrollTrigger.refresh();
+      }, 0);
+    }
   }
 
   onMouseMove(event: MouseEvent) {

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, OnInit, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
 import { Benefit } from 'src/app/shared/models/benefit.model';
 import { MyServices } from 'src/app/shared/models/myServices.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
@@ -8,11 +8,12 @@ import { BenifitsOfMyServicesService } from 'src/app/shared/services/benifitsOfM
 import { TechnologiesComponent } from "../../home-page-sections/technologies/technologies.component";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TestimonialComponent } from "../../home-page-sections/testimonial/testimonial.component";
 
 @Component({
   selector: 'app-why-me',
   standalone: true,
-  imports: [CommonModule, TechnologiesComponent],
+  imports: [CommonModule, TechnologiesComponent, TestimonialComponent],
   templateUrl: './why-me.component.html',
   styleUrls: ['./why-me.component.css']
 })
@@ -20,13 +21,17 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
 
   benefits: Benefit[] = [];
   services: MyServices[] = [];
+  isBrowser = false;
 
   constructor(
     public modalService: ModalService,
     private myServicesService: MyServicesService,
     private BenifitsOfMyServicesService: BenifitsOfMyServicesService,
-    private cdr: ChangeDetectorRef
-  ) { }
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit() {
     // Fetch the data from the service
@@ -42,24 +47,26 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    // Nothing here yet, will handle in checkDataLoaded when both data sets load
   }
 
   private checkDataLoaded() {
-    if (this.services.length > 0 && this.benefits.length > 0) {
-      // Both data sets are loaded
-      // Wait for the view to update
+    if (this.services.length > 0 && this.benefits.length > 0 && this.isBrowser) {
+      // Both data sets are loaded and we are in the browser
       this.cdr.detectChanges(); // Ensure view updates
       setTimeout(() => {
-        this.initGSAPAnimations();
+        if (this.isBrowser) {
+          this.initGSAPAnimations();
+        }
       }, 0);
     }
   }
 
   private initGSAPAnimations() {
+    if (!this.isBrowser) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate the heading
     gsap.from('.whyWork', {
       duration: 3,
       y: -50,
@@ -72,7 +79,6 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // Animate the "Request a Service" button
     gsap.from('.request-service-button', {
       duration: 1,
       x: 50,
@@ -86,22 +92,9 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // Animate the highlight boxes
-    // gsap.from('.heroHighLights', {
-    //   duration: 1,
-    //   y: 50,
-    //   opacity: 0,
-    //   stagger: 0.2,
-    //   ease: 'power3.out',
-    //   scrollTrigger: {
-    //     trigger: '.heroHighLights',
-    //     start: 'top 80%',
-    //     once: true,
-    //   },
-    // });
-
     // Animate each benefit card
-    gsap.utils.toArray('.benefit-card').forEach((card: any, index: number) => {
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    benefitCards.forEach((card: Element, index: number) => {
       gsap.from(card, {
         y: 50,
         opacity: 0,
@@ -116,15 +109,14 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
       });
     });
 
-    // Add hover effects
-    this.addHoverEffects();
+    // Add hover effects after the cards are available
+    this.addHoverEffects(benefitCards);
 
-    // Refresh ScrollTrigger after initializing animations
     ScrollTrigger.refresh();
   }
 
-  private addHoverEffects() {
-    const benefitCards = document.querySelectorAll('.benefit-card');
+  private addHoverEffects(benefitCards: NodeListOf<Element>) {
+    if (!this.isBrowser) return;
 
     benefitCards.forEach((card) => {
       card.addEventListener('mouseenter', () => {

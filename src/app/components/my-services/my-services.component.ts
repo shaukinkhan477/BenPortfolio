@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, Inject, PLATFORM_ID  } from '@angular/core';
 import { TechnologiesComponent } from "../../home-page-sections/technologies/technologies.component";
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { TypingEffectComponent } from '../typing-effect/typing-effect.component';
@@ -21,19 +21,26 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
 
   services: MyServices[] = [];
   benefits: Benefit[] = [];
+  isBrowser = false;
 
   constructor(
     public modalService: ModalService,
     private myServicesService: MyServicesService,
     private BenifitsOfMyServicesService: BenifitsOfMyServicesService,
-    private cdr: ChangeDetectorRef
-  ) { }
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+   }
 
   ngOnInit() {
-    window.scrollTo(0, 0);
+    if (this.isBrowser) {
+       window.scrollTo(0, 0);
 
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
+     }
+
 
     // Fetch the data from the service
     this.myServicesService.getServices().subscribe((data) => {

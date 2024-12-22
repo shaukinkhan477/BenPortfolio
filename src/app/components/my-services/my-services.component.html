@@ -1,10 +1,10 @@
 <div class="container mx-auto px-6 lg:px-16 py-12">
   <div class="text-center mb-12">
-    <app-typing-effect class=" serviceCards tagline"></app-typing-effect>
+    <app-typing-effect class="serviceCards tagline"></app-typing-effect>
   </div>
 
-  <!-- Header Section with Button -->
-  <div class=" serviceCards flex items-center justify-between mb-12">
+  <!-- Header Section with Button and "Available for hire" -->
+  <div class="serviceCards flex items-center justify-between mb-12">
     <!-- Services Heading -->
     <h1
       class="services text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
@@ -12,13 +12,21 @@
       Services
     </h1>
 
-    <!-- "Request a Service" Button -->
-    <button
-      (click)="openGetInTouchModal()"
-      class="request-service-button sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300 active:scale-95"
-    >
-      Request a Service
-    </button>
+    <div class="flex items-center space-x-4">
+      <!-- Available for hire text -->
+      <!-- <span class="available-for-hire text-white font-semibold flex items-center">
+        <span class="blinking-dot ml-1 text-green-600">•</span>
+        Available for hire
+      </span> -->
+
+      <!-- "Request a Service" Button -->
+      <button
+        (click)="openGetInTouchModal()"
+        class="request-service-button sm:block px-6 py-2 font-semibold rounded-md text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient-x hover:opacity-90 transition-opacity duration-300 active:scale-95"
+      >
+        Request a Service
+      </button>
+    </div>
   </div>
 
   <!-- Services Grid -->
