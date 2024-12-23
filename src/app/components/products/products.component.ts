@@ -20,5 +20,11 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
+
+      // Future method: Fetch products from a backend API
+  // getProductsFromAPI(): Observable<Product[]> {
+  //   return this.http.get<Product[]>('https://your-api-endpoint.com/products');
+  // }
+  
   }
 }

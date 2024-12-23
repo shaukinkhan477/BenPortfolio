@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
-import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { AboutComponent } from './home-page-sections/about/about.component';
 import { ContactComponent } from './home-page-sections/contact/contact.component';
@@ -14,7 +13,7 @@ import { TestimonialComponent } from './home-page-sections/testimonial/testimoni
 import { MyServicesComponent } from './components/my-services/my-services.component';
 import { WhyMeComponent } from './components/why-me/why-me.component';
 import { CaseStudyDetailComponent } from './components/case-study-detail/case-study-detail.component';
-import { ProductsComponent } from './components/products/products.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,7 +26,6 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComponent},
   { path: 'technologies', component: TechnologiesComponent},
   { path: 'testimonials', component: TestimonialComponent},
-  { path: 'blog', component: BlogComponent, data: { animation: 'BlogPage' }, },
   { path: 'blog/:id', component: BlogDetailComponent, data: { animation: 'BlogPage' }, },
   { path: 'my-services', component: MyServicesComponent, data: { animation: 'MyServicePage' },},
   { path: 'why-me', component: WhyMeComponent, data: { animation: 'WhyMePage' }, },
@@ -37,7 +35,19 @@ export const routes: Routes = [
     data: { animation: 'CaseStudyPage' },
   },
   { path: 'case-study/:id', component: CaseStudyDetailComponent },
-  {path: 'products', component: ProductsComponent}
+
+  {
+    path: 'blog',
+    loadComponent: () => import('./components/blog/blog.component').then(m => m.BlogComponent),
+    data: { animation: 'BlogPage' },
+  },
+
+  {
+    path: 'products',
+    loadComponent: () => import('./components/products/products.component').then(m => m.ProductsComponent),
+    data: { animation: 'ProductsPage' },
+  },
+
 ];
 
 @NgModule({

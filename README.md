@@ -38,6 +38,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ![Why Me](<src/assets/newFeaturesScreenshot/Why Me Component.png>)
 
+![Our product](<src/assets/newFeaturesScreenshot/products component.png>)
+
 ![Get In Touch Modal](<src/assets/newFeaturesScreenshot/Get In Touch Modal.png>)
 
 ![Book Consultation Modal 1](<src/assets/newFeaturesScreenshot/Book Consultation Modal 1.png>)
