@@ -72,7 +72,7 @@ export class MyServicesComponent implements OnInit, AfterViewInit {
   private initGSAPAnimations() {
     // Animate the header
     gsap.from('.serviceCards', {
-      duration: 3,
+      duration: 2,
       y: -50,
       opacity: 0,
       ease: 'power3.out',

@@ -68,7 +68,7 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.from('.whyWork', {
-      duration: 3,
+      duration: 2,
       y: -50,
       opacity: 0,
       ease: 'power3.out',

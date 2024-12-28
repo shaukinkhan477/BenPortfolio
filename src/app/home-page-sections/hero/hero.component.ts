@@ -40,7 +40,7 @@ private isBrowser: boolean;
         tl.from('.heroContent', {
           y: -20,
           opacity: 0,
-          duration: 2.5,
+          duration: 2,
           delay: 0.4,
           x: -500,
           stagger: 1

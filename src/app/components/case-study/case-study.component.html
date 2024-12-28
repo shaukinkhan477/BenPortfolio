@@ -1,9 +1,23 @@
-<div class="container mx-auto px-6 py-12">
-     <div class="flex items-center mb-12">
-    <h2 class="services text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight">
+<!-- Spline background container -->
+<div class="spline-bg-container">
+  <iframe
+    src="https://my.spline.design/particles-6a10804a32038434543c2cf381c917c2/"
+    frameborder="0"
+    width="100%"
+    height="100%"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<!-- Main content container -->
+<div class="container mx-auto px-6 py-12 case-studies-content">
+  <div class="flex items-center mb-12">
+    <h2
+      class="services text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
+    >
       Case Studies
     </h2>
-    </div>
+  </div>
 
   <!-- Projects Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -15,19 +29,25 @@
       <img [src]="project.image" [alt]="project.title" class="w-full h-56 object-cover">
       <div class="p-6">
         <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
-        <p class="mb-2"><strong><i class="bi bi-person text-2xl text-green-500 mr-2"></i>Employer:</strong> {{ project.employer }}</p>
+        <p class="mb-2">
+          <strong>
+            <i class="bi bi-person text-2xl text-green-500 mr-2"></i>Employer:
+          </strong>
+          {{ project.employer }}
+        </p>
 
-        <p class="mb-4"><strong><i class="bi bi-alarm text-2xl text-green-500 mr-2"></i>Duration:</strong> {{ project.year }}</p>
+        <p class="mb-4">
+          <strong>
+            <i class="bi bi-alarm text-2xl text-green-500 mr-2"></i>Duration:
+          </strong>
+          {{ project.year }}
+        </p>
+
         <div class="mb-4" [innerHTML]="project.description"></div>
         <div>
-
           <strong><i class="bi bi-cpu text-2xl text-green-500 mr-2"></i>Technologies:</strong>
-
-
           <ul class="list-disc list-inside">
-
             <li *ngFor="let tech of project.technologies">{{ tech }}</li>
-
           </ul>
         </div>
       </div>
