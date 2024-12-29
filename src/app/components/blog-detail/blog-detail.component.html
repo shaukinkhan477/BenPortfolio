@@ -1,126 +1,158 @@
+<!-- Outer wrapper for the Spline background + blog detail content -->
+<div class="blog-detail-wrapper relative overflow-hidden">
 
-<div *ngIf="!blog">
-  Loading blog...
-</div>
+  <!-- Spline background container -->
+  <div class="spline-bg-container absolute top-0 left-0 w-full h-full z-0">
+    <iframe
+      src="https://my.spline.design/nexbotrobotcharacterconcept-effbbb49753a7218755bae1a70f9b92a/"
+      frameborder="0"
+      width="100%"
+      height="100%"
+      allowfullscreen
+    ></iframe>
+  </div>
 
-<div *ngIf="blog" class="container mx-auto px-6 lg:px-16 py-12">
+  <!-- Existing blog detail container (now placed above the background) -->
+  <div *ngIf="!blog">
+    Loading blog...
+  </div>
 
-<!-- Back to Blogs Button -->
-<button (click)="backToAllBlogs()" mat-button class="flex items-center mb-4 gradient-button">
-  <mat-icon>arrow_back</mat-icon>
-  <span class="ml-2">Back to Blogs</span>
-</button>
-<br>
+  <div *ngIf="blog" class="container mx-auto px-6 lg:px-16 py-12 relative z-10">
 
-   <!-- Blog Title -->
-  <span class="text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent mt-2">{{ blog.title }}</span>
+    <!-- Back to Blogs Button -->
+    <button (click)="backToAllBlogs()" mat-button class="flex items-center mb-4 gradient-button">
+      <mat-icon>arrow_back</mat-icon>
+      <span class="ml-2">Back to Blogs</span>
+    </button>
+    <br>
 
-  <!-- Blog Excerpt -->
-  <p class="text-lg text-gray-400">{{ blog.excerpt }}</p>
+    <!-- Blog Title -->
+    <span class="text-4xl font-bold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent mt-2">
+      {{ blog.title }}
+    </span>
 
-  <!-- Blog Image -->
-  <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="w-3/4 h-80 mt-4 mb-6">
+    <!-- Blog Excerpt -->
+    <p class="text-lg text-gray-400">{{ blog.excerpt }}</p>
 
-   <!-- Blog Content -->
-  <h1 class="text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading1}}</h1>
-  <p class="text-lg text-gray-400">{{blog.heading1Content}}</p>
-  <h2 class="text-3xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading2}}</h2>
-  <p class="text-lg text-gray-400">{{blog.heading2Content}}</p>
-  <h3 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.heading3}}</h3>
-  <p class="text-lg text-gray-400">{{blog.heading1Content}}</p>
-  <h4 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">{{blog.summary}}</h4>
-  <p class="text-lg text-gray-400">{{blog.blogSummary}}</p>
+    <!-- Blog Image -->
+    <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="w-3/4 h-80 mt-4 mb-6" />
+
+    <!-- Blog Content -->
+    <h1 class="text-4xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">
+      {{ blog.heading1 }}
+    </h1>
+    <p class="text-lg text-gray-400">{{ blog.heading1Content }}</p>
+
+    <h2 class="text-3xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">
+      {{ blog.heading2 }}
+    </h2>
+    <p class="text-lg text-gray-400">{{ blog.heading2Content }}</p>
+
+    <h3 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">
+      {{ blog.heading3 }}
+    </h3>
+    <p class="text-lg text-gray-400">{{ blog.heading1Content }}</p>
+
+    <h4 class="text-2xl bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">
+      {{ blog.summary }}
+    </h4>
+    <p class="text-lg text-gray-400">{{ blog.blogSummary }}</p>
 
     <!-- Action Buttons -->
-  <div class="flex items-center space-x-4 mt-6">
-    <!-- Like Button -->
-   <!-- Like Button -->
-<button
-  (click)="onLike()"
-  mat-button
-  class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-green-700 transition"
->
-  <mat-icon class="mr-2">thumb_up</mat-icon>
-  <span>{{ blog.likes || 0 }}</span>
-</button>
+    <div class="flex items-center space-x-4 mt-6">
+      <!-- Like Button -->
+      <button
+        (click)="onLike()"
+        mat-button
+        class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-green-700 transition"
+      >
+        <mat-icon class="mr-2">thumb_up</mat-icon>
+        <span>{{ blog.likes || 0 }}</span>
+      </button>
 
-<!-- Dislike Button -->
-<button
-  (click)="onDislike()"
-  mat-button
-  class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-red-700 transition"
->
-  <mat-icon class="mr-2">thumb_down</mat-icon>
-  <span>{{ blog.dislikes || 0 }}</span>
-</button>
+      <!-- Dislike Button -->
+      <button
+        (click)="onDislike()"
+        mat-button
+        class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-red-700 transition"
+      >
+        <mat-icon class="mr-2">thumb_down</mat-icon>
+        <span>{{ blog.dislikes || 0 }}</span>
+      </button>
 
-
-    <!-- Share Button -->
-    <button (click)="share()" mat-button class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition">
-      <mat-icon class="mr-2">share</mat-icon>
-      <span>Share</span>
-    </button>
-  </div>
-
-  <!-- Comments Section -->
-  <div class="mt-8">
-    <h2 class="text-2xl font-bold mb-4">Comments</h2>
-
-    <!-- Display existing comments -->
-    <div *ngFor="let comment of comments" class="mb-4">
-      <div class="flex items-center">
-        <span class="font-bold">{{ comment.author }}</span>
-        <span class="text-sm text-gray-500 ml-2">{{ comment.date | date:'short' }}</span>
-      </div>
-      <p class="text-gray-200">{{ comment.content }}</p>
-    </div>
-
-    <!-- Add a new comment -->
-    <div class="mt-6">
-      <h3 class="text-xl font-bold mb-2">Add a Comment</h3>
-      <textarea [(ngModel)]="newComment" class="w-full p-2 bg-gray-800 text-white rounded" rows="3" placeholder="Write your comment..."></textarea>
-      <button (click)="addComment()" class="mt-2 px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition">
-        Post Comment
+      <!-- Share Button -->
+      <button
+        (click)="share()"
+        mat-button
+        class="flex items-center px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition"
+      >
+        <mat-icon class="mr-2">share</mat-icon>
+        <span>Share</span>
       </button>
     </div>
-  </div>
 
-  <div class="mt-12">
-    <h2 class="text-2xl font-bold mb-4">Related Blogs</h2>
+    <!-- Comments Section -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Comments</h2>
 
-    <!-- Check if related blogs are available -->
-    <div *ngIf="relatedBlogs.length > 0; else noRelatedBlogs">
-      <!-- Display related blogs -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          *ngFor="let relatedBlog of relatedBlogs"
-          class="bg-gray-700 shadow-md rounded-lg overflow-hidden"
+      <!-- Display existing comments -->
+      <div *ngFor="let comment of comments" class="mb-4">
+        <div class="flex items-center">
+          <span class="font-bold">{{ comment.author }}</span>
+          <span class="text-sm text-gray-500 ml-2">{{ comment.date | date:'short' }}</span>
+        </div>
+        <p class="text-gray-200">{{ comment.content }}</p>
+      </div>
+
+      <!-- Add a new comment -->
+      <div class="mt-6">
+        <h3 class="text-xl font-bold mb-2">Add a Comment</h3>
+        <textarea
+          [(ngModel)]="newComment"
+          class="w-full p-2 bg-gray-800 text-white rounded"
+          rows="3"
+          placeholder="Write your comment..."
+        ></textarea>
+        <button
+          (click)="addComment()"
+          class="mt-2 px-4 py-2 bg-gray-600 text-white rounded hover:bg-cyan-700 transition"
         >
-          <img
-            [src]="relatedBlog.imageUrl"
-            alt="{{ relatedBlog.title }}"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">{{ relatedBlog.title }}</h3>
-            <p class="text-sm text-gray-400 mb-4">{{ relatedBlog.excerpt }}</p>
-            <a [routerLink]="['/blog', relatedBlog.id]" class="text-cyan-600 hover:underline"
-              >Read more</a
-            >
+          Post Comment
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold mb-4">Related Blogs</h2>
+
+      <!-- Check if related blogs are available -->
+      <div *ngIf="relatedBlogs.length > 0; else noRelatedBlogs">
+        <!-- Display related blogs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            *ngFor="let relatedBlog of relatedBlogs"
+            class="bg-gray-700 shadow-md rounded-lg overflow-hidden"
+          >
+            <img
+              [src]="relatedBlog.imageUrl"
+              alt="{{ relatedBlog.title }}"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">{{ relatedBlog.title }}</h3>
+              <p class="text-sm text-gray-400 mb-4">{{ relatedBlog.excerpt }}</p>
+              <a [routerLink]="['/blog', relatedBlog.id]" class="text-cyan-600 hover:underline"
+                >Read more</a
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Template to display if no related blogs are available -->
-    <ng-template #noRelatedBlogs>
-      <p class="text-gray-400">Related blogs not available.</p>
-    </ng-template>
+      <!-- Template to display if no related blogs are available -->
+      <ng-template #noRelatedBlogs>
+        <p class="text-gray-400">Related blogs not available.</p>
+      </ng-template>
+    </div>
   </div>
 </div>
-
-
-
-
-
-

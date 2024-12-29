@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NgModule as _NgModule } from '@angular/core';  // Keep your existing imports
+import { NgModule as _NgModule } from '@angular/core';
 
-// If you still need these references for other reasons, you can keep them,
-// but they are no longer required for lazy-loaded routes:
+
 // import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 // import { AboutComponent } from './home-page-sections/about/about.component';
 // import { ContactComponent } from './home-page-sections/contact/contact.component';

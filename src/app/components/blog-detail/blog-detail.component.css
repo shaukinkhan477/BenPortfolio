@@ -1,5 +1,39 @@
 /* blog-detail.component.css */
 
+/* The wrapper that holds everything */
+.blog-detail-wrapper {
+  position: relative;
+  overflow: hidden; /* Ensures any extra iframe area is hidden */
+}
+
+/* The Spline background container behind the blog detail */
+.spline-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;        /* behind the .container’s z-index:10 */
+  overflow: hidden;  /* hide iframe scroll if it’s bigger than container */
+}
+
+/* The main container with blog details is above the background */
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Existing gradient-button etc. remain unchanged */
+.gradient-button {
+  background: linear-gradient(to right, #f0f4c3, #b2ebf2);
+  /* ...other styles... */
+}
+.gradient-button:hover {
+  background: linear-gradient(to right, #b2ebf2, #f0f4c3);
+  /* ...other hover styles... */
+}
+
+
 /* Gradient background and basic styles for the button */
 .gradient-button {
   background: linear-gradient(to right, #f0f4c3, #b2ebf2); /* Light gradient colors */
