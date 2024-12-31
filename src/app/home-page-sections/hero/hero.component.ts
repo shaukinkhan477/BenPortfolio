@@ -2,11 +2,12 @@ import { Component, AfterViewInit, ElementRef, ViewChild, Inject, PLATFORM_ID } 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isPlatformBrowser } from '@angular/common';
+import { HeroHighlightsComponent } from "../../components/hero-highlights/hero-highlights.component";
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [HeroHighlightsComponent],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })

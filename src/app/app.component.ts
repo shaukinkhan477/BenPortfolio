@@ -53,6 +53,7 @@ export class AppComponent implements OnInit {
 
   showHeaderFooter(): boolean {
     // Define routes where header and footer should be hidden
+    const cleanedUrl = this.router.url.split('?')[0].split('#')[0];
     const noHeaderFooterRoutes = ['/login', '/register'];
     return !noHeaderFooterRoutes.includes(this.router.url);
   }

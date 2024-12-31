@@ -267,3 +267,66 @@ export const routeAnimations = trigger('routeAnimations', [
 // ]);
 
 
+// Slide Up Transition
+// export const routeAnimations = trigger('routeAnimations', [
+//   transition('* <=> *', [
+//     query(':enter, :leave', style({
+//       position: 'fixed',
+//       width: '100%',
+//       height: '100%',
+//     }), { optional: true }),
+
+//     group([
+//       // Leave
+//       query(':leave', [
+//         animate('600ms ease-in-out', style({
+//           transform: 'translateY(-100%)',
+//         })),
+//       ], { optional: true }),
+
+//       // Enter
+//       query(':enter', [
+//         style({ transform: 'translateY(100%)' }),
+//         animate('600ms ease-in-out', style({
+//           transform: 'translateY(0)',
+//         })),
+//       ], { optional: true }),
+//     ]),
+//   ]),
+// ]);
+
+// Bounce Transition
+
+// export const routeAnimations = trigger('routeAnimations', [
+//   transition('* <=> *', [
+//     query(':enter, :leave', style({
+//       position: 'fixed',
+//       width: '100%',
+//       height: '100%',
+//     }), { optional: true }),
+
+//     // Animate in parallel
+//     group([
+//       // leave
+//       query(':leave', [
+//         animate('700ms cubic-bezier(0.68, -0.55, 0.265, 1.55)', style({
+//           opacity: 0,
+//           transform: 'scale(0.5)',
+//         })),
+//       ], { optional: true }),
+
+//       // enter
+//       query(':enter', [
+//         style({ opacity: 0, transform: 'scale(1.5)' }),
+//         animate('700ms cubic-bezier(0.68, -0.55, 0.265, 1.55)', style({
+//           opacity: 1,
+//           transform: 'scale(1)',
+//         })),
+//       ], { optional: true }),
+//     ]),
+//   ]),
+// ]);
+
+
+
+
