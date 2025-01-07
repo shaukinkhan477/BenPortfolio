@@ -1,4 +1,3 @@
-
 .slider-container {
   width: 100%;
   overflow: hidden;
@@ -10,7 +9,6 @@ a {
   align-items: center;
   text-decoration: none;
   color: #4f93ff;
-
 
   svg {
     margin-left: 0.4rem;
@@ -29,15 +27,21 @@ a {
   }
 }
 
-
 .slider-track {
   display: flex;
-  width: 200%;
-  animation: scroll-left-right 30s linear infinite;
+
+  width: max-content; /* Allow the track to expand based on content */
+  cursor: grab; /* Indicates draggable content */
+  user-select: none; /* Prevent text selection while dragging */
+}
+
+.slider-track.active {
+  cursor: grabbing;
 }
 
 /* The benefit card styling */
 .benefit-card {
+  flex-shrink: 0;
   position: relative;
   width: 250px;
   margin: 1rem;
@@ -47,57 +51,54 @@ a {
   padding: 1.5rem;
   color: #ffff;
   transition: transform 0.5s, box-shadow 0.4s;
+  overflow: hidden; /* Add this to contain the shape within the card */
+}
 
-  /* Subtle scale & shadow on hover */
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  }
+/* Subtle scale & shadow on hover */
+.benefit-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
 
-   &:hover .icons {
-    color: #fff !important;
-  }
+.benefit-card:hover .icons {
+  color: #fff !important;
+}
 
+.card-top-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 0;
+  background: linear-gradient(to right, #4f93ff, #75baff);
 
-  .card-top-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 90px;
-    z-index: 0;
+  /* A rough “curve” using polygon clip-path. */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 70%,
+    50% 100%,
+    0 70%
+  );
 
+  /* Keep it hidden above the card initially */
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
 
-    background: linear-gradient(to right, #4f93ff, #75baff);
+  /* Optional: if you want the top corners themselves rounded. */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
 
-    /* A rough “curve” using polygon clip-path. */
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% 70%,
-      50% 100%,
-      0 70%
-    );
+/* Reveal shape on hover */
+.benefit-card:hover .card-top-shape {
+  transform: translateY(0);
+}
 
-    /* Keep it hidden above the card initially */
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-
-    /* Optional: if you want the top corners themselves rounded. */
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-
-  /* Reveal shape on hover */
-  &:hover .card-top-shape {
-    transform: translateY(0);
-  }
-
-
-  .content {
-    position: relative;
-    z-index: 1;
-  }
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes scroll-left-right {
@@ -108,6 +109,6 @@ a {
     transform: translateX(-50%);
   }
   100% {
-    transform: translateX(0);
+    transform: translate(0);
   }
 }
