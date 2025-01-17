@@ -1,41 +1,35 @@
 <div class="slider-container">
-  <div class="slider-track" data-aos="fade-up">
-    <!-- Render your cards twice for marquee effect -->
-    <ng-container *ngFor="let repeat of [1,2]">
-      <div class="benefit-card" *ngFor="let benefit of benefits">
-
-        <!-- The shaped top that we'll reveal on hover -->
-        <div class="card-top-shape"></div>
-
-        <!-- Card content. We wrap it in a .content container to ensure it’s above the shape -->
-        <div class="content">
-          <div class="flex items-center mb-4">
-            <i [class]="benefit.icon + ' icons text-4xl text-blue-400 mr-4'"></i>
-          </div>
-          <div>
-            <h2 class="text-3xl font-bold">{{ benefit.title }}</h2>
-          </div>
-          <p class="text-gray-300">{{ benefit.description }}</p>
-          <a href="#" class="hover:underline flex items-center mt-2">
-            Read more
-            <svg
-    class="w-4 h-4 ml-1"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M14 5l7 7m0 0l-7 7m7-7H3"
-    />
-  </svg>
-          </a>
+  <!-- Note the template reference sliderTrack here -->
+  <div class="slider-track" #sliderTrack>
+    <!-- Render your cards -->
+    <div class="benefit-card" *ngFor="let benefit of benefits">
+      <div class="card-top-shape"></div>
+      <div class="content">
+        <div class="flex items-center mb-4">
+          <i [class]="benefit.icon + ' icons text-4xl text-blue-400 mr-4'"></i>
         </div>
-
+        <div>
+          <h2 class="text-3xl font-bold">{{ benefit.title }}</h2>
+        </div>
+        <p class="text-gray-300">{{ benefit.description }}</p>
+        <a href="#" class="hover:underline flex items-center mt-2">
+          Read more
+          <svg
+            class="w-4 h-4 ml-1"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
+        </a>
       </div>
-    </ng-container>
+    </div>
   </div>
 </div>

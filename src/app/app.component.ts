@@ -9,11 +9,12 @@ import { BookConsultationModalComponent } from "./shared/modals/book-consultatio
 import { routeAnimations } from './route-animations';
 import { AnimationEvent as AngularAnimationEvent } from '@angular/animations';
 import { isPlatformBrowser } from '@angular/common';
+import { HeroHighlightsComponent } from "./components/hero-highlights/hero-highlights.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, BookConsultationModalComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContactModalComponent, BookConsultationModalComponent, HeroHighlightsComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [routeAnimations],
