@@ -6,8 +6,8 @@
 
 <app-contact-modal></app-contact-modal>
 
-<div [@routeAnimations]="prepareRoute(outlet)" (@routeAnimations.done)="onRouteAnimationDone($event)"
-  style="position: relative;">
+<!-- [@routeAnimations]="prepareRoute(outlet)" (@routeAnimations.done)="onRouteAnimationDone($event)" -->
+<div style="position: relative;">
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
 
