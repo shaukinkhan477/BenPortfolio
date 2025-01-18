@@ -15,10 +15,9 @@ import { TestimonialComponent } from "../../home-page-sections/testimonial/testi
   standalone: true,
   imports: [CommonModule, TechnologiesComponent, TestimonialComponent],
   templateUrl: './why-me.component.html',
-  styleUrls: ['./why-me.component.css']
+  styleUrls: ['./why-me.component.css'],
 })
 export class WhyMeComponent implements OnInit, AfterViewInit {
-
   benefits: Benefit[] = [];
   services: MyServices[] = [];
   isBrowser = false;
@@ -51,7 +50,11 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
   }
 
   private checkDataLoaded() {
-    if (this.services.length > 0 && this.benefits.length > 0 && this.isBrowser) {
+    if (
+      this.services.length > 0 &&
+      this.benefits.length > 0 &&
+      this.isBrowser
+    ) {
       // Both data sets are loaded and we are in the browser
       this.cdr.detectChanges(); // Ensure view updates
       setTimeout(() => {
@@ -87,7 +90,7 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
       rotate: 360,
       scrollTrigger: {
         trigger: '.request-service-button',
-        start: 'top 80%',
+        start: 'top 90%',
         once: true,
       },
     });
@@ -103,7 +106,7 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
         rotate: 180,
         scrollTrigger: {
           trigger: card,
-          start: 'top 80%',
+          start: 'top 90%',
         },
         delay: index * 0.1,
       });
@@ -142,5 +145,10 @@ export class WhyMeComponent implements OnInit, AfterViewInit {
   // Open the "Get in Touch" modal
   openGetInTouchModal() {
     this.modalService.openModal();
+  }
+
+  // Toggle the detailed description
+  toggleDetails(benefit: Benefit) {
+    benefit.showDetails = !benefit.showDetails;
   }
 }
