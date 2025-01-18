@@ -22,7 +22,7 @@ export class HeroComponent implements AfterViewInit {
   heroContent = 'As a Senior Angular Consultant, I bring a wealth of experience in building dynamic, responsive, and scalable web applications using Angular and its modern ecosystem. Over the years, I have honed my expertise in developing front-end solutions that prioritize performance, maintainability, and user experience. I specialize in architecting complex, enterprise-level applications while following best practices in component design, state management, and TypeScript. With a strong understanding of Angular\'s inner workings, I am adept at solving intricate technical challenges, optimizing code, and mentoring development teams.';
 
 
-private isBrowser: boolean;
+  private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -76,22 +76,23 @@ private isBrowser: boolean;
     }
   }
 
-  onMouseMove(event: MouseEvent) {
-    const image = this.heroImage.nativeElement;
+  // image rotation/animation logic 
+  onMouseMove(event: MouseEvent): void {
+    const image: any = this.heroImage.nativeElement;
 
     // Get dimensions and positions
-    const rect = image.getBoundingClientRect();
+    const rect: any = image.getBoundingClientRect();
 
     // Calculate the mouse position relative to the center of the image
-    const xPos = event.clientX - rect.left - rect.width / 2;
-    const yPos = event.clientY - rect.top - rect.height / 2;
+    const xPos: number = event.clientX - rect.left - rect.width / 2;
+    const yPos: number = event.clientY - rect.top - rect.height / 2;
 
     // Set maximum rotation values
     const maxRotation = 20; // Adjust for more or less rotation
 
     // Calculate rotation values
-    const xRotation = (yPos / rect.height) * maxRotation;
-    const yRotation = -(xPos / rect.width) * maxRotation;
+    const xRotation: number = (yPos / rect.height) * maxRotation;
+    const yRotation: number = -(xPos / rect.width) * maxRotation;
 
     // Use GSAP to animate the rotation
     gsap.to(image, {
@@ -116,33 +117,33 @@ private isBrowser: boolean;
     });
   }
 
-//   onMouseMove(event: MouseEvent) {
-//   const image = this.heroImage.nativeElement;
-//   const rect = image.getBoundingClientRect();
-//   const xPos = event.clientX - rect.left - rect.width / 2;
-//   const yPos = event.clientY - rect.top - rect.height / 2;
-//   const maxTranslate = 20; // Maximum pixels to move
+  //   onMouseMove(event: MouseEvent) {
+  //   const image = this.heroImage.nativeElement;
+  //   const rect = image.getBoundingClientRect();
+  //   const xPos = event.clientX - rect.left - rect.width / 2;
+  //   const yPos = event.clientY - rect.top - rect.height / 2;
+  //   const maxTranslate = 20; // Maximum pixels to move
 
-//   const xTranslate = (xPos / rect.width) * maxTranslate;
-//   const yTranslate = (yPos / rect.height) * maxTranslate;
+  //   const xTranslate = (xPos / rect.width) * maxTranslate;
+  //   const yTranslate = (yPos / rect.height) * maxTranslate;
 
-//   gsap.to(image, {
-//     x: xTranslate,
-//     y: yTranslate,
-//     duration: 0.3,
-//     ease: 'power3.out',
-//   });
-// }
+  //   gsap.to(image, {
+  //     x: xTranslate,
+  //     y: yTranslate,
+  //     duration: 0.3,
+  //     ease: 'power3.out',
+  //   });
+  // }
 
-// onMouseLeave() {
-//   const image = this.heroImage.nativeElement;
+  // onMouseLeave() {
+  //   const image = this.heroImage.nativeElement;
 
-//   gsap.to(image, {
-//     x: 0,
-//     y: 0,
-//     duration: 0.5,
-//     ease: 'power3.out',
-//   });
-// }
+  //   gsap.to(image, {
+  //     x: 0,
+  //     y: 0,
+  //     duration: 0.5,
+  //     ease: 'power3.out',
+  //   });
+  // }
 
 }
